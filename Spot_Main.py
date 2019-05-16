@@ -1,26 +1,26 @@
-# Define path to program files
-#import sys
+# Set Enviroment
 import os
-#sys.path.append('C:\Spot')
-#userProfile=str(os.environ.get("USERPROFILE"))
+twilioAccountSid=os.environ["s_twilioAccountSid"]
+twilioAuthToken=os.environ["s_twilioAuthToken"]
+twilioAmrron=os.environ["s_twilioAmrron"]
+oscarRoeo01=os.environ["s_oscarRomeo01"]
+romeo07=os.environ["s_romeo07"]
+googleKey=os.environ["s_googleKey"]
 
-# Import Modules
-from Spot_Keys_PC import Spot_Env
+# Import Functions
 from Spot_Geocode import geocode
 from Spot_TransmitTwilio import Transmit
-Spot_Env()
+from twilio.rest import Client
 
 # Load Defaults values
 from Spot_Defaults import xDefault,yDefault,dmrIdDefault,callsignDefault,gridDefault,zipDefault
-#from Spot_Keys_PC import twilioAccountSid,twilioAuthToken,twilioAmrron,oscarRomeo01,romeo07,googleKey
-from twilio.rest import Client
 
 # Set Constants
 callsign=callsignDefault
 zipcode=zipDefault
 grid=gridDefault
 
-# Import 
+# Import modules
 import urllib.request, urllib.parse, urllib.error
 import json
 import urllib3

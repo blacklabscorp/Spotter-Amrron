@@ -2,7 +2,10 @@
 import urllib.request, urllib.parse, urllib.error
 import json
 import urllib3
-from Spot_Keys_PC import googleKey
+import os
+
+# Constants
+googleKey=os.environ["s_googleKey"]
 from Spot_Defaults import serviceurl,key
 
 def geocode(zipcode):

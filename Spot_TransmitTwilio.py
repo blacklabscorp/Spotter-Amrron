@@ -1,5 +1,13 @@
-from Spot_Keys_PC import twilioAccountSid,twilioAuthToken,romeo07,oscarRomeo01,twilioAmrron
+# Module load
 from twilio.rest import Client
+
+# Environment Variables
+import os
+twilioAccountSid=os.environ["s_twilioAccountSid"]
+twilioAuthToken=os.environ["s_twilioAuthToken"]
+twilioAmrron=os.environ["s_twilioAmrron"]
+oscarRomeo01=os.environ["s_oscarRomeo01"]
+romeo07=os.environ["s_romeo07"]
 
 # Function: Transmit
 def Transmit(transmitMenu):
@@ -18,7 +26,7 @@ def Transmit(transmitMenu):
         print(message.sid)
     if comm=="OP":
         # Message 
-        # Function: Twilio Web Service for SMS
+        # Function: Twilio Web Service for Phone
         # Auth method
         client = Client(twilioAccountSid, twilioAuthToken)
         call = client.calls.create(
@@ -41,7 +49,7 @@ def Transmit(transmitMenu):
         print(message.sid)
     if comm=="RP":
         # Message 
-        # Function: Twilio Web Service for SMS
+        # Function: Twilio Web Service for Phone
         # Auth method
         client = Client(twilioAccountSid, twilioAuthToken)
         call = client.calls.create(
@@ -65,7 +73,7 @@ def Transmit(transmitMenu):
         print(message.sid)
     if comm=="CAP":
         # Message 
-        # Function: Twilio Web Service for SMS
+        # Function: Twilio Web Service for Phone
         # Auth method
         client = Client(twilioAccountSid, twilioAuthToken)
         call = client.calls.create(
