@@ -1,7 +1,6 @@
 # Function: Geocode Web service
 import urllib.request, urllib.parse, urllib.error
 import json
-import urllib3
 import os
 
 # Constants
