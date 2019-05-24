@@ -1,0 +1,4 @@
+These additional libraries will need to be installed in addition to Python 3.7.3
+pip install twilio==5.7.0
+sudo apt-get install python-bs4
+pip install request or requests

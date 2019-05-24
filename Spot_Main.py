@@ -1,5 +1,6 @@
 # Set Enviroment
 import os
+
 twilioAccountSid=os.environ["s_twilioAccountSid"]
 twilioAuthToken=os.environ["s_twilioAuthToken"]
 twilioAmrron=os.environ["s_twilioAmrron"]
@@ -9,21 +10,27 @@ googleKey=os.environ["s_googleKey"]
 
 # Import Functions
 from Spot_Geocode import geocode
+from Spot_Solar import solarReports
 from Spot_TransmitTwilio import Transmit
-from twilio.rest import Client
+#from Spot_Input import HamDefaultsInput
+
 
 # Load Defaults values
-from Spot_Defaults import xDefault,yDefault,dmrIdDefault,callsignDefault,gridDefault,zipDefault
+from Spot_Defaults import xDefault,yDefault,dmrIdDefault,callsignDefault,zipcodeDefault,gridDefault
 
 # Set Constants
-callsign=callsignDefault
-zipcode=zipDefault
-grid=gridDefault
+callsignCurrent=callsignDefault
+zipcodeCurrent=zipcodeDefault
+gridCurrent=gridDefault
+callsignLast=callsignCurrent
+zipcodeLast=zipcodeCurrent
+gridLast=gridCurrent
+
 
 # Import modules
 import urllib.request, urllib.parse, urllib.error
 import json
-import urllib3
+
 
 # Capturing time 
 import datetime
@@ -31,13 +38,13 @@ timeLocalCurrent = datetime.datetime.now().isoformat()
 timeUtcCurrent=datetime.datetime.utcnow()
 
 # Function: Default values print
-def HamDefaultsOutput():
+def HamDefaultsOutput(callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent):
     print()
     print('D E F A U L T S')
-    print('Callsign Default: ',callsignDefault)
+    print('Callsign Default: ',callsignDefault,' CallsignLast: ',callsignLast)
     print()
-    print('Grid Default: ',gridDefault)
-    print('Zipcode Default: ',zipDefault)
+    print('Grid Default: ',gridDefault,' Grid Last: ',gridLast)
+    print('Zipcode Default: ',zipcodeDefault,' Zipcode Last: ',zipcodeLast)
     print()
     print ('Your Default GPS coordinates: Decimal Lattitude: ',xDefault)
     print ('Your Default GPS coordiante Decimal Longitude: ',yDefault)
@@ -46,45 +53,73 @@ def HamDefaultsOutput():
     print('Current GMT Time: ',timeUtcCurrent)
     print()
 
-
 # Function: HamDefaultInput
-def HamDefaultsInput():
-    HamDefaultsOutput()
-    callsign=callsignDefault
-    zipcode=zipDefault
-    grid=gridDefault
+def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent):
+    print('CallsignCurrent: ',callsignCurrent)
+    print('ZipcodeCurrent: ',zipcodeCurrent)
+    print('GrideCurrent: ',gridCurrent)
+    print('CallsignDefault: ',callsignDefault)
+    print('ZipcodeDefault: ',zipcodeDefault)
+    print('GridDefault: ',gridDefault)
+    print('CallsignLast: ',callsignLast)
+    print('ZipcodeLast: ',zipcodeLast)
+    print('GridLast: ',gridLast)
     while True:
+        print()
         print()
         correct=input ('Are these Correct, type [D]efault; Y[es], N[o]:')
         if correct == "D":
             print()
-            print (HamDefaultsOutput())
+            callsignLast=callsignCurrent
+            zipcodeLast=zipcodeCurrent
+            gridLast=gridCurrent
+            callsignCurrent=callsignDefault
+            zipcodeCurrent=zipcodeDefault
+            gridCurrent=gridDefault
+            HamDefaultsOutput(callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent)
             break
         if correct == "N": 
+            callsignLast=callsignCurrent
+            zipcodeLast=zipcodeCurrent
+            gridLast=gridCurrent
             print()
-            callsign=input(' Hit Enter to accept or Callsign to change:')
+            callsignNew=input(' Hit Enter to accept or Callsign to change:')
             print()
-            zipcode=input(' Hit Enter to accept or zipcode to change:')
+            zipcodeNew=input(' Hit Enter to accept or zipcode to change:')
             print()
-            grid=input('Enter your Gridcode (or blank if unknown): ')
+            gridNew=input('Enter your Gridcode (or blank if unknown): ')
             print()
+            callsignCurrent=callsignNew
+            zipcodeCurrent=zipcodeNew
+            gridCurrent=gridNew
             print()
-            print('You entered Callsign: ',callsign)
+            print('You entered Callsign: ',callsignCurrent,' Previous entry was: ',callsignLast)
             print()
-            print('You entered Zipcode: ',zipcode)
-            print('You entered Grid: ',grid)
+            print('You entered Zipcode: ',zipcodeCurrent, ' Previous zipcode was: ',zipcodeLast)
+            print('You entered Grid: ',gridCurrent,' Previous Grid was: ',gridLast)
+            break
         if correct == "Y":
             print()
             print()
-            HamDefaultsOutput()
             print('Y O U R  V A L U E S')
             print()
-            print('Your Callsign: ',callsign)
+            print('Your Callsign: ',callsignCurrent)
             print()
-            print('Your Zipcode: ',zipcode)
-            print('Your Grid: ',grid)
+            print('Your Zipcode: ',zipcodeCurrent)
+            print('Your Grid: ',gridCurrent)
             print()
-        break
+            break
+    print('Exit Function: HamInput')
+    print('CallsignCurrent: ',callsignCurrent)
+    print('ZipcodeCurrent: ',zipcodeCurrent)
+    print('GrideCurrent: ',gridCurrent)
+    print('CallsignDefault: ',callsignDefault)
+    print('ZipcodeDefault: ',zipcodeDefault)
+    print('GridDefault: ',gridDefault)
+    print('CallsignLast: ',callsignLast)
+    print('ZipcodeLast: ',zipcodeLast)
+    print('GridLast: ',gridLast)
+    return callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent
 
 # Transmit Menu
 def TransmitMenu():
@@ -140,25 +175,46 @@ def TransmitMenu():
         break
 
 # Main Block
-print ("C U R R E N T  D E F A U L T  S E T T I N G S")
-print (HamDefaultsOutput())
-print()
-print('MAIN MENU')
-print()
-print('[M] Main Inputs')
-print('[G] Get Google data')
-print('[T[ Transmit Menu')
-mainMenu=input ('Which option would you like...')        
-if mainMenu=="M":
+while True:
+    #sunDict=solarReports()
     print()
-    HamDefaultsInput()
-if mainMenu=="G":
+    print('MAIN MENU')
     print()
-    geocode(zipcode)
-if mainMenu=="T":
+    print('[M] Main Inputs')
+    print('[G] Get Google data')
+    print('[T[ Transmit Menu')
     print()
-    print('Off to Transmit...')
+    mainMenu=input ('Which option would you like...')
+    if mainMenu=="M":
+        print()
+        callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent)
+        print('Main Menu new values')
+        print()
+        print('Your Current Callsign:',callsignCurrent,' Default Callsign: ',callsignDefault)
+        print()
+        print('Your Current Zipcode:',zipcodeCurrent,' Default Zipcode: ',zipcodeDefault)
+        print()
+        print('Your Current Gridcode:',gridCurrent,' Default Gridcode: ',gridDefault)
+    if mainMenu=="G":
+        print()
+        geocode(zipcodeCurrent)
+        break
+    if mainMenu=="T":
+        print()
+        print('Off to Transmit...')
+        print()
+        TransmitMenu()
+        break
     print()
-    TransmitMenu()
-
+    print('I have reached the end')
+    print('Main Resuls')
+    print('CallsignCurrent: ',callsignCurrent)
+    print('ZipcodeCurrent: ',zipcodeCurrent)
+    print('GrideCurrent: ',gridCurrent)
+    print('CallsignDefault: ',callsignDefault)
+    print('ZipcodeDefault: ',zipcodeDefault)
+    print('GridDefault: ',gridDefault)
+    print('CallsignLast: ',callsignLast)
+    print('ZipcodeLast: ',zipcodeLast)
+    print('GridLast: ',gridLast)
 
