@@ -7,12 +7,13 @@ twilioAmrron=os.environ["s_twilioAmrron"]
 oscarRoeo01=os.environ["s_oscarRomeo01"]
 romeo07=os.environ["s_romeo07"]
 googleKey=os.environ["s_googleKey"]
+callsign=os.environ["s_callsign"]
 
 # Import Functions
 from Spot_Geocode import geocode
 from Spot_Solar import solarReports
 from Spot_TransmitTwilio import Transmit
-#from Spot_Input import HamDefaultsInput
+from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 
 
 # Load Defaults values
@@ -175,46 +176,52 @@ def TransmitMenu():
         break
 
 # Main Block
-while True:
-    #sunDict=solarReports()
+sunDict=solarReports()
+while True: 
     print()
     print('MAIN MENU')
     print()
-    print('[M] Main Inputs')
-    print('[G] Get Google data')
+    print('[I] Inputs Menu')
+    print('[G] Google data Menu')
     print('[T[ Transmit Menu')
+    print('[F] FlMsg Menu')
     print()
     mainMenu=input ('Which option would you like...')
-    if mainMenu=="M":
+    if mainMenu=="I":
         print()
         callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,zipcodeDefault,zipcodeLast,zipcodeCurrent,gridDefault,gridLast,gridCurrent)
-        print('Main Menu new values')
+        print('Input Menu new values')
         print()
-        print('Your Current Callsign:',callsignCurrent,' Default Callsign: ',callsignDefault)
+        print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
         print()
-        print('Your Current Zipcode:',zipcodeCurrent,' Default Zipcode: ',zipcodeDefault)
+        print('Your Current Zipcode:',zipcodeCurrent,' Last: ',zipcodeLast,' Default: ',zipcodeDefault)
         print()
-        print('Your Current Gridcode:',gridCurrent,' Default Gridcode: ',gridDefault)
+        print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
     if mainMenu=="G":
         print()
         geocode(zipcodeCurrent)
-        break
     if mainMenu=="T":
         print()
         print('Off to Transmit...')
         print()
         TransmitMenu()
-        break
+    if mainMenu=="F":
+        print()
+        print('FlMsg Menu')
+        print()
+        AmrronSpotRepv3()
     print()
-    print('I have reached the end')
-    print('Main Resuls')
-    print('CallsignCurrent: ',callsignCurrent)
-    print('ZipcodeCurrent: ',zipcodeCurrent)
-    print('GrideCurrent: ',gridCurrent)
-    print('CallsignDefault: ',callsignDefault)
-    print('ZipcodeDefault: ',zipcodeDefault)
-    print('GridDefault: ',gridDefault)
-    print('CallsignLast: ',callsignLast)
-    print('ZipcodeLast: ',zipcodeLast)
-    print('GridLast: ',gridLast)
+    
+    # Test variable prints
+    #print('I have reached the end')
+    #print('Main Resuls')
+    #print('CallsignCurrent: ',callsignCurrent)
+    #print('ZipcodeCurrent: ',zipcodeCurrent)
+    #print('GrideCurrent: ',gridCurrent)
+    #print('CallsignDefault: ',callsignDefault)
+    #print('ZipcodeDefault: ',zipcodeDefault)
+    #print('GridDefault: ',gridDefault)
+    #print('CallsignLast: ',callsignLast)
+    #print('ZipcodeLast: ',zipcodeLast)
+    #print('GridLast: ',gridLast)
 
