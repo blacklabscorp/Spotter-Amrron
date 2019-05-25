@@ -5,11 +5,11 @@ import os
 
 # Constants
 googleKey=os.environ["s_googleKey"]
-from Spot_Defaults import serviceurl,key
+from Spot_Defaults import googleGeoCodeServiceUrl,key
 
-def geocode(zipcode):
+def geocode(zipcodeCurrent):
     while True:
-        url = (serviceurl + urllib.parse.urlencode({'address': zipcode})+key+googleKey)
+        url = (googleGeoCodeServiceUrl + urllib.parse.urlencode({'address': zipcodeCurrent})+key+googleKey)
         urlHandle = urllib.request.urlopen(url)
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
@@ -29,7 +29,7 @@ def geocode(zipcode):
         physicalAddress = js['results'][0]['formatted_address']
         print()
         print()
-        print('The Zip code you entered: ',zipcode)
+        print('The Zip code you entered: ',zipcodeCurrent)
         print()
         print('results in the following: City, State, and Country:')
         print()

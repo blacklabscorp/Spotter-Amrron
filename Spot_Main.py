@@ -1,6 +1,17 @@
 # Set Enviroment
 import os
 
+workingDir=os.path.dirname(os.path.abspath(__file__))
+dataDir='\\SpotData\\'
+dataPath=print(workingDir+dataDir)
+k2sDefault=os.environ["s_K2sDefault"]
+#k2sDataPathTarget = os.path.join(dataPath,k2sDefault)
+print(workingDir)
+print(dataDir)
+print(k2sDefault,'k2sDataPathTarget')
+print(workingDir+dataDir+k2sDefault)
+
+
 twilioAccountSid=os.environ["s_twilioAccountSid"]
 twilioAuthToken=os.environ["s_twilioAuthToken"]
 twilioAmrron=os.environ["s_twilioAmrron"]
@@ -8,6 +19,8 @@ oscarRoeo01=os.environ["s_oscarRomeo01"]
 romeo07=os.environ["s_romeo07"]
 googleKey=os.environ["s_googleKey"]
 callsign=os.environ["s_callsign"]
+
+
 
 # Import Functions
 from Spot_Geocode import geocode
@@ -142,7 +155,7 @@ def TransmitMenu():
             HamDefaultsInput()
         if transmitMenu=="G":
             print()
-            geocode(zipcode)
+            geocode(zipcodeCurrent)
         if transmitMenu=="OT":
             print()
             print('Off to Transmit...')
@@ -209,7 +222,7 @@ while True:
         print()
         print('FlMsg Menu')
         print()
-        AmrronSpotRepv3()
+        AmrronSpotRepv3(workingDir,dataDir,k2sDefault)
     print()
     
     # Test variable prints

@@ -6,11 +6,11 @@ import os
 
 # Constants from Env variables not from Defaults file
 callsign=os.environ["s_callsign"]
-K2SfileDefault=os.environ["s_K2sDefault"]
-K2SfileLatest=K2SfileDefault
+k2sFileDefault=os.environ["s_k2sDefault"]
+k2SFileLatest=k2sFileDefault
 xsdict={}
 
-def AmrronSpotRepv3():
+def AmrronSpotRepv3(workingDir,dataDir,k2sDefault):
         print('K2S Menu for FlMsg file')
         print()
         print('[E] Enter file name')
@@ -21,17 +21,18 @@ def AmrronSpotRepv3():
                 K2SMenu=input('K2s Menu')
                 if K2SMenu=="E":
                         print()
-                        K2SfileCurrent=input('file name: ')
+                        k2sFileEntry=input('file name: ')
+                        k2sFileCurrent=workingDir+dataDir+k2sFileEntry
                         break
                 if K2SMenu=="D":
                         print()
-                        K2SfileCurrent=K2SfileDefault
+                        k2sFileCurrent=workingDir+dataDir+k2sDefault
                         break
                 if K2sMenu=="L":
                         print()
-                        K2SfileCurrent=K2SfileLatest
+                        k2sFileCurrent=dataDir+k2sFileLatest
 #iterating through FlMsg file into a JSON format
-        for line in open(K2SfileCurrent):
+        for line in open(k2sFileCurrent):
         # trim whitespace
                 line=line.rstrip()
                 print()
