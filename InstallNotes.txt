@@ -1,4 +1,14 @@
 These additional libraries will need to be installed in addition to Python 3.7.3
+
+Twilio library
 pip install twilio==5.7.0
+
+Beautiful Soup for Html/XML scrapping
 sudo apt-get install python-bs4
+
+Http Requests
 pip install request or requests
+
+Open Weather Wrapper
+pip install pyowm
+usage notes: https://pyowm.readthedocs.io/en/latest/usage-examples-v2/weather-api-usage-examples.html

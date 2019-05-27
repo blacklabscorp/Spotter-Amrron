@@ -3,35 +3,51 @@
 # Load libraries
 import json
 import os
+import glob
 
 # Constants from Env variables not from Defaults file
 callsign=os.environ["s_callsign"]
 k2sFileDefault=os.environ["s_k2sDefault"]
-k2SFileLatest=k2sFileDefault
+k2sFileLatest=k2sFileDefault
+k2sFileCurrent=k2sFileDefault
 xsdict={}
 
-def AmrronSpotRepv3(workingDir,dataDir,k2sDefault):
+def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir):
         print('K2S Menu for FlMsg file')
         print()
-        print('[E] Enter file name')
-        print('[D[ Default file name')
-        print('[L] Latest file name:')
-        print()
+        print('[E] Enter file name:')
+        print('[D[ SpotData default file:')
+        print('[L] FlMsg Latest file:')
+        print(flMsgWorkingDir)
+        print(k2sFileDefault)
         while True:
-                K2SMenu=input('K2s Menu')
-                if K2SMenu=="E":
+                k2sMenu=input('K2s Menu')
+                if k2sMenu=="E":
                         print()
                         k2sFileEntry=input('file name: ')
                         k2sFileCurrent=workingDir+dataDir+k2sFileEntry
+                        print(k2sFileCurrent)
+                        AmrronSpotRepv3Json(k2sFileCurrent)
                         break
-                if K2SMenu=="D":
+                if k2sMenu=="D":
                         print()
-                        k2sFileCurrent=workingDir+dataDir+k2sDefault
+                        k2sFileCurrent=workingDir+dataDir+k2sFileDefault
+                        print(k2sFileCurrent)
+                        AmrronSpotRepv3Json(k2sFileCurrent)
                         break
-                if K2sMenu=="L":
+                if k2sMenu=="L":
                         print()
-                        k2sFileCurrent=dataDir+k2sFileLatest
+                        fileBucket = glob.glob(flMsgWorkingDir+'\\*.k2s')
+                        print(fileBucket)
+                        k2sFileLatest = max(fileBucket, key=os.path.getctime)
+                        k2sFileCurrent=k2sFileLatest
+                        print(k2sFileCurrent)
+                        AmrronSpotRepv3Json(k2sFileCurrent)
+                        break
+        return (k2sFileCurrent)
+
 #iterating through FlMsg file into a JSON format
+def AmrronSpotRepv3Json (k2sFileCurrent):
         for line in open(k2sFileCurrent):
         # trim whitespace
                 line=line.rstrip()
@@ -135,6 +151,8 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sDefault):
         print(formType)
         print(body) 
 
-
+# Test Block
+#AmrronSpotRepv3Json(k2sFileCurrent)
+#print (k2sFileCurrent)
 
 

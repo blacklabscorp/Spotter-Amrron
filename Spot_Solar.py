@@ -2,9 +2,12 @@
 import requests
 from bs4 import BeautifulSoup
 from Spot_Defaults import solarServiceUrl
-#from Spot_Keys_PC import solarKey
 
-def solarReports():
+def SolarReport():
         page = requests.get(solarServiceUrl)
         soup = BeautifulSoup(page.text,'html.parser')
         print (soup)
+
+# Test Block
+#solar=SolarReport()
+#print(solar)
