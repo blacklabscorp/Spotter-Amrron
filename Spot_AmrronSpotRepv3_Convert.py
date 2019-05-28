@@ -6,7 +6,7 @@ import os
 import glob
 
 # Constants from Env variables not from Defaults file
-callsign=os.environ["s_callsign"]
+callsignDefault=os.environ["s_callsignDefault"]
 k2sFileDefault=os.environ["s_k2sDefault"]
 k2sFileLatest=k2sFileDefault
 k2sFileCurrent=k2sFileDefault
@@ -16,10 +16,8 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir):
         print('K2S Menu for FlMsg file')
         print()
         print('[E] Enter file name:')
-        print('[D[ SpotData default file:')
-        print('[L] FlMsg Latest file:')
-        print(flMsgWorkingDir)
-        print(k2sFileDefault)
+        print('[D[ ',dataDir,'using default file....',k2sFileDefault)
+        print('[L] FlMsg folder:',flMsgWorkingDir,'using latest file....')
         while True:
                 k2sMenu=input('K2s Menu')
                 if k2sMenu=="E":
@@ -64,7 +62,7 @@ def AmrronSpotRepv3Json (k2sFileCurrent):
                         a=':hdr'
                         b=line
                         xsdict[a]=b
-                if line.startswith(callsign):
+                if line.startswith(callsignDefault):
                         callDate=line
                         print(line,end=' ')
                         a='callDate'

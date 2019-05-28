@@ -14,23 +14,23 @@ flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages'
 k2sFileDefault=os.environ["s_K2sDefault"]
 
 # Env PII
-oscarRoeo01=os.environ["s_oscarRomeo01"]
-romeo07=os.environ["s_romeo07"]
-callsign=os.environ["s_callsign"]
-postalcodeDefault=os.environ["s_postalcode"]
-cityStateDefault=os.environ["s_cityState"]
+amrron00User=os.environ["s_amrron00User"]
+amrron01User=os.environ["s_amrron01User"]
+callsignDefault=os.environ["s_callsignDefault"]
+postalcodeDefault=os.environ["s_postalcodeDefault"]
+cityStateDefault=os.environ["s_cityStateDefault"]
 
 # Env Keys
 twilioAccountSid=os.environ["s_twilioAccountSid"]
 twilioAuthToken=os.environ["s_twilioAuthToken"]
-twilioAmrron=os.environ["s_twilioAmrron"]
+twilioAmrronCell=os.environ["s_twilioAmrronCell"]
 googleKey=os.environ["s_googleKey"]
 openWeatherKey=os.environ["s_openWeatherKey"]
 
 # Import Functions
 from Spot_GoogleGeoCode import GoogleGeo
 from Spot_Solar import SolarReport
-from Spot_TransmitTwilio import Transmit
+from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 
@@ -141,59 +141,6 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             break
     return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
-# Transmit Menu
-def TransmitMenu():
-    print('T R A N S M I T  M E N U')
-    print('_________________________')
-    print()
-    while True:
-        print('Option: [M] Return to Main Inputs')
-        print('Option: [G] Fetch Google Data')
-        print('Option: [OT] Oscar Romeo 01 SMS delivery')
-        print('Option: [OP] Oscar Romeo 01 Phone delivery')
-        print('Option: [RT] Romeo 07 SMS Delivery')
-        print('Option: [RP] Romeo 07 Phone Delivery')
-        print('Option: [CAT] All CA SMS Delivery')
-        print('Option: [CAP] All CA Phone Delivery')
-        transmitMenu=input ('Which option would you like...')        
-        if transmitMenu=="M":
-            print()
-            break
-        if transmitMenu=="G":
-            print()
-            GooogleGeo(postalcodeCurrent,xDefault,yDefault)
-        if transmitMenu=="OT":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        if transmitMenu=="OP":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        if transmitMenu=="RT":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        if transmitMenu=="RP":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        if transmitMenu=="CAT":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        if transmitMenu=="CAP":
-            print()
-            print('Off to Transmit...')
-            print()
-            Transmit(transmitMenu)
-        break
-
 def WeatherMenu():
     print('W E A T H E R  M E N U')
     print('________________________')
@@ -278,7 +225,7 @@ while True:
     print()
     print('[I] Inputs Menu')
     print('[G] Google data Menu')
-    print('[T[ Transmit Menu')
+    print('[T] Transmit Menu')
     print('[F] FlMsg Menu')
     print('[W] Weather Menu')
     print('[E} Environment Menu')
@@ -298,9 +245,8 @@ while True:
         GoogleGeo(postalcodeCurrent,xDefault,yDefault)
     if mainMenu=="T":
         print()
-        print('Off to Transmit...')
-        print()
         TransmitMenu()
+        print()
     if mainMenu=="F":
         print()
         AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir)
