@@ -88,7 +88,7 @@ def Transmit(transmitMenu):
         client = Client(twilioAccountSid, twilioAuthToken)
         message = client.messages \
                     .create(
-                        body="Amrron Alert: Spot Report to Oscar Romeo 01",
+                        body="Amrron Alert: Spot Report",
 
                          from_=twilioAmrronCell,
 
@@ -113,7 +113,7 @@ def Transmit(transmitMenu):
         client = Client(twilioAccountSid, twilioAuthToken)
         message = client.messages \
                     .create(
-                         body="Amrron Alert: Spot Report to Amrron 01",
+                         body="Amrron Alert: Spot Report",
                          from_=twilioAmrronCell,
                          to=amrron01Cell
                      )

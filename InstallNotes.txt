@@ -24,6 +24,9 @@ s_OpenWeatherKey		Open Weather Key (requires sign-up for API key from OpenWeathe
 s_twilioAccountSid		Twilio Username (requires sign-up for API key from Twilio)
 s_twilioAmrronCell		Twilio phone number (+18005551212 format) (requires sign-up for API key from Twilio)
 s_twilioAuthToken		Twilio password (requires sign-up for API key from Twilio)
+s_adafruitIoName		AdafruitIo User Name
+s_adafruitIoKey			AdafruitIO Key
+s_DarkSkysKey			Alternative weather service Key
 s_amrronDefaultWebServerUrl	Amrron web server for presentation tier (FUTURE FEATURE on AWS)
 s_amrronDefaultWebServiceUrl	Amrron web service logger URL (FUTURE FEATURE on AWS)
 s_amrronDefaultWebServiceKey	Amrron web service logger Key (FUTURE FEATURE on AWS)

@@ -16,6 +16,8 @@ k2sFileDefault=os.environ["s_K2sDefault"]
 # Env PII
 amrron00User=os.environ["s_amrron00User"]
 amrron01User=os.environ["s_amrron01User"]
+amrron00Cell=os.environ["s_amrron00Cell"]
+amrron01Cell=os.environ["s_amrron01Cell"]
 callsignDefault=os.environ["s_callsignDefault"]
 postalcodeDefault=os.environ["s_postalcodeDefault"]
 cityStateDefault=os.environ["s_cityStateDefault"]
@@ -33,9 +35,10 @@ from Spot_Solar import SolarReport
 from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
+from Spot_USGSEarthquake import USGSEarthquake
 
 # Load Defaults values
-from Spot_Defaults import xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey
+from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
 
 # Set Constants
 callsignCurrent=callsignDefault
@@ -196,7 +199,7 @@ def EnvironmentMenu ():
     while True:
         print('Option: [M] Return to Main Inputs')
         print('Option: [S] Default Sun Weather')
-        print('Option: [E] Earthquake activity')
+        print('Option: [EQ] Earthquake activity')
         print('Option: [R] Radiation recordings')
         environmentMenu=input ('Which option would you like...')
         if environmentMenu=="M":
@@ -206,10 +209,11 @@ def EnvironmentMenu ():
             print()
             SolarReport()
             break
-        if environmentMenu=="E":
+        if environmentMenu=="EQ":
             print()
             print('Earthquake regional Reports')
             print()
+            USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent)
             break
         if environmentMenu=="R":
             print()
