@@ -13,6 +13,9 @@ Open Weather Wrapper
 pip install pyowm
 usage notes: https://pyowm.readthedocs.io/en/latest/usage-examples-v2/weather-api-usage-examples.html
 
+Objectpath
+Pip install objectpath
+
 Out of working directory where the application will be installed, create a subdirectory called SpotData this is where output files will go.
 
 The following environment variables are used to isolated PII or sensitive key information to memory so as to be less likely to be mistakenly uploaded to repository

@@ -8,6 +8,13 @@ def SolarReport():
         soup = BeautifulSoup(page.text,'html.parser')
         print (soup)
 
-# Test Block
+#print('Test Block')
 #solar=SolarReport()
 #print(solar)
+
+
+# PRE-REQs to run this module
+# Process URL requests
+	# pip install request or requests
+# Web scrapper
+	# pip install bs4

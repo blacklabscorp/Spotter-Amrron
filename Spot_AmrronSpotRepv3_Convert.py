@@ -12,7 +12,7 @@ k2sFileLatest=k2sFileDefault
 k2sFileCurrent=k2sFileDefault
 xsdict={}
 
-def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir):
+def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault):
         print('K2S Menu for FlMsg file')
         print()
         print('[E] Enter file name:')
@@ -31,7 +31,7 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir):
                         print()
                         k2sFileCurrent=workingDir+dataDir+k2sFileDefault
                         print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(k2sFileCurrent)
+                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
                         break
                 if k2sMenu=="L":
                         print()
@@ -40,12 +40,12 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir):
                         k2sFileLatest = max(fileBucket, key=os.path.getctime)
                         k2sFileCurrent=k2sFileLatest
                         print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(k2sFileCurrent)
+                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
                         break
         return (k2sFileCurrent)
 
 #iterating through FlMsg file into a JSON format
-def AmrronSpotRepv3Json (k2sFileCurrent):
+def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent):
         for line in open(k2sFileCurrent):
         # trim whitespace
                 line=line.rstrip()
