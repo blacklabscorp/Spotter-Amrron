@@ -5,6 +5,16 @@ import json
 import os
 import glob
 
+# Env Data & Working directories
+workingDir=os.path.dirname(os.path.abspath(__file__))
+dataDir='\\SpotData\\'
+dataPath=print(workingDir+dataDir)
+
+# FlMsg working directories
+UserProfile=os.environ["USERPROFILE"]
+flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages'
+k2sFileDefault=os.environ["s_K2sDefault"]
+
 # Constants from Env variables not from Defaults file
 callsignDefault=os.environ["s_callsignDefault"]
 k2sFileDefault=os.environ["s_k2sDefault"]
@@ -150,7 +160,7 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
         print(body) 
 
 # Test Block
-#AmrronSpotRepv3Json(k2sFileCurrent)
+#AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
 #print (k2sFileCurrent)
 
 

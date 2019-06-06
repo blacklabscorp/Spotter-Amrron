@@ -21,6 +21,8 @@ amrron01Cell=os.environ["s_amrron01Cell"]
 
 # Transmit Menu
 def TransmitMenu():
+    twilioAccountSid=os.environ["s_twilioAccountSid"]
+    twilioAuthToken=os.environ["s_twilioAuthToken"]
     twilioAmrronCell=os.environ["s_twilioAmrronCell"]
     amrron00User=os.environ["s_amrron00User"]
     amrron00Cell=os.environ["s_amrron00Cell"]
@@ -250,3 +252,7 @@ def Transmit(transmitMenu):
     return
 #print('Test Block')
 #TransmitMenu()
+
+# Pre-Req libraries Install
+# pip install twilio
+
