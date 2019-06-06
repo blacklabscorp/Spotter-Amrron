@@ -22,7 +22,7 @@ k2sFileLatest=k2sFileDefault
 k2sFileCurrent=k2sFileDefault
 xsdict={}
 
-def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault):
+def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent):
         print('K2S Menu for FlMsg file')
         print()
         print('[E] Enter file name:')
@@ -153,14 +153,12 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         # Write the json file
         with open('amrronSpot.json', 'w') as f:
                 json.dump(xsdict, f, ensure_ascii=False)
-        print(flmsg)
-        print(header)
-        print(callDate)
-        print(formType)
-        print(body) 
+
 
 # Test Block
 #AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
 #print (k2sFileCurrent)
+#print (flMsgWorkingDir)
 
-
+# Pre-Req Pip Install
+# NONE

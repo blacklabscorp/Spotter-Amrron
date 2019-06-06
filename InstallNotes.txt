@@ -1,10 +1,11 @@
 These additional libraries will need to be installed in addition to Python 3.7.3
+pip install --upgrade pip
 
 Twilio library
-pip install twilio==5.7.0
+pip install twilio
 
 Beautiful Soup for Html/XML scrapping
-sudo apt-get install python-bs4
+pip install bs4
 
 Http Requests
 pip install request or requests

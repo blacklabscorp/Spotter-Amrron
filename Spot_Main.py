@@ -12,6 +12,7 @@ dataPath=print(workingDir+dataDir)
 UserProfile=os.environ["USERPROFILE"]
 flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages'
 k2sFileDefault=os.environ["s_K2sDefault"]
+k2sFileCurrent=k2sFileDefault
 
 # Env PII
 amrron00User=os.environ["s_amrron00User"]
@@ -215,7 +216,7 @@ def EnvironmentMenu ():
             print('Earthquake regional Reports')
             print()
             USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent)
-            Earthquake()
+            #Earthquake()
             break
         if environmentMenu=="R":
             print()
