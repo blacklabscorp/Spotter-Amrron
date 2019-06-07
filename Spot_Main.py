@@ -6,7 +6,7 @@ import json
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
 dataDir='\\SpotData\\'
-dataPath=print(workingDir+dataDir)
+dataPath=workingDir+dataDir
 
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
@@ -37,12 +37,12 @@ from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
-from Spot_Configs import ConfigsJSONOut,ConfigsJSONInPrint
+from Spot_PC_Configs import ConfigsJSONOut,ConfigsJSONInPrint
 #from Spot_Earthquake4Out import Earthquake
 
 # Load Defaults values
 from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
-from Spot_Configs import Configs
+from Spot_PC_Configs import secretConfigs
 
 # Set Constants
 callsignCurrent=callsignDefault
@@ -148,8 +148,8 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             break
         if correct=="O":
             print()
-            ConfigsJSONOut(Configs)
-            ConfigsJSONInPrint()
+            ConfigsJSONOut(secretConfigs,dataPath)
+            ConfigsJSONInPrint(dataPath)
             
     return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
@@ -222,7 +222,7 @@ def EnvironmentMenu ():
             print()
             print('Earthquake regional Reports')
             print()
-            USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent)
+            USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent,dataPath)
             #Earthquake()
             break
         if environmentMenu=="R":
@@ -263,7 +263,7 @@ while True:
         print()
     if mainMenu=="F":
         print()
-        AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
+        AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
         print() 
     if mainMenu=="W":
         print()

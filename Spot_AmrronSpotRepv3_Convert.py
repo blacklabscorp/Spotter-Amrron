@@ -8,7 +8,7 @@ import glob
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
 dataDir='\\SpotData\\'
-dataPath=print(workingDir+dataDir)
+dataPath=workingDir+dataDir
 
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
@@ -22,26 +22,33 @@ k2sFileLatest=k2sFileDefault
 k2sFileCurrent=k2sFileDefault
 xsdict={}
 
-def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent):
+def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath):
         print('K2S Menu for FlMsg file')
         print()
         print('[E] Enter file name:')
-        print('[D[ ',dataDir,'using default file....',k2sFileDefault)
+        print('[D] ',dataDir,'using default file....',k2sFileDefault)
         print('[L] FlMsg folder:',flMsgWorkingDir,'using latest file....')
+        print()
         while True:
                 k2sMenu=input('K2s Menu')
                 if k2sMenu=="E":
                         print()
                         k2sFileEntry=input('file name: ')
-                        k2sFileCurrent=workingDir+dataDir+k2sFileEntry
+                        if k2sFileEntry == "x" : break
+                        try:
+                                k2sDataPath=str(dataPath)
+                                k2sFileCurrent=dataPath+k2sFileEntry
+                        except:
+                                print('Invalid Input')
+                                continue
                         print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(k2sFileCurrent)
+                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
                         break
                 if k2sMenu=="D":
                         print()
                         k2sFileCurrent=workingDir+dataDir+k2sFileDefault
                         print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
+                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
                         break
                 if k2sMenu=="L":
                         print()
@@ -50,12 +57,12 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDe
                         k2sFileLatest = max(fileBucket, key=os.path.getctime)
                         k2sFileCurrent=k2sFileLatest
                         print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
+                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
                         break
         return (k2sFileCurrent)
 
 #iterating through FlMsg file into a JSON format
-def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent):
+def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath):
         for line in open(k2sFileCurrent):
         # trim whitespace
                 line=line.rstrip()
@@ -151,12 +158,15 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         b=xs[1]
                         xsdict[a]=b
                         # Write the json file
-        with open('amrronSpot.json', 'w') as f:
+
+        target=str(dataPath)
+        configTarget=((target)+'SpotOut_AmrronSpotV3.json')
+        with open(configTarget, 'w') as f:
                 json.dump(xsdict, f, ensure_ascii=False)
 
 
 # Test Block
-#AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent)
+#AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
 #print (k2sFileCurrent)
 #print (flMsgWorkingDir)
 
