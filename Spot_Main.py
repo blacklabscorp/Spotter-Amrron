@@ -37,12 +37,12 @@ from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
-from Spot_PC_Configs import ConfigsJSONOut,ConfigsJSONInPrint
+from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint
 #from Spot_Earthquake4Out import Earthquake
 
 # Load Defaults values
 from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
-from Spot_PC_Configs import secretConfigs
+from Spot_Configs_PC import secretConfigs
 
 # Set Constants
 callsignCurrent=callsignDefault
