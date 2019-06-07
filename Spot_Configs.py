@@ -1,6 +1,7 @@
 import json
 import os
 
+# Load values from Env variables
 callsignDefault=os.environ["s_callsignDefault"]
 dmrIdDefault=os.environ["s_dmrIdDefault"]
 xDefault=os.environ["s_xDefault"]
@@ -33,38 +34,54 @@ amrron01Email=os.environ["s_amrron01Email"]
 #amrron04Email=os.environ["s_amrron04Email"]
 #amrron05Email=os.environ["s_amrron05Email"]
 
+# Create Dict
 Configs={}
-Configs={'callsignDefault':callsignDefault,
-         'dmrIdDefault':dmrIdDefault,
-         'k2sDefault':k2sDefault,
-         'xDefault':xDefault,
-         'yDefault':yDefault,
-         'gridDefault':gridDefault,
-         'postalcodeDefault':postalcodeDefault,
-         'googleKey':googleKey,
-         'accuWeatherKey':accuWeatherKey,
-         'OpenWeatherKey':OpenWeatherKey,
-         'twilioAccountSid':twilioAccountSid,
-         'twilioAmrronCell':twilioAmrronCell,
-         'twilioAuthToken':twilioAuthToken,
-         'amrron00User':amrron00User,
-         'amrron01User':amrron01User,
-         #'amrron02User':amrron02User,
-         #'amrron03User':amrron03User,
-         #'amrron04User':amrron04User,
-         #'amrron05User':amrron05User,
-         'amrron00Cell':amrron00Cell,
-         'amrron01Cell':amrron01Cell,
-         #amrron02Cell':amrron02Cell,
-         #amrron03Cell':amrron03Cell,
-         #amrron04Cell':amrron04Cell,
-         #amrron05Cell':amrron05Cell,
-         'amrron00Email':amrron00Email,
-         'amrron01Email':amrron01Email,
-         #amrron02Email':amrron02Email,
-         #amrron03Email':amrron03Email,
-         #amrron04Email':amrron04Email,
-         #amrron05Email':amrron05Email
+Configs={'s_callsignDefault':callsignDefault,
+         's_dmrIdDefault':dmrIdDefault,
+         's_k2sDefault':k2sDefault,
+         's_xDefault':xDefault,
+         's_yDefault':yDefault,
+         's_gridDefault':gridDefault,
+         's_postalcodeDefault':postalcodeDefault,
+         's_googleKey':googleKey,
+         's_accuWeatherKey':accuWeatherKey,
+         's_OpenWeatherKey':OpenWeatherKey,
+         's_twilioAccountSid':twilioAccountSid,
+         's_twilioAmrronCell':twilioAmrronCell,
+         's_twilioAuthToken':twilioAuthToken,
+         's_amrron00User':amrron00User,
+         's_amrron01User':amrron01User,
+         #'s_amrron02User':amrron02User,
+         #'s_amrron03User':amrron03User,
+         #'s_amrron04User':amrron04User,
+         #'s_amrron05User':amrron05User,
+         's_amrron00Cell':amrron00Cell,
+         's_amrron01Cell':amrron01Cell,
+         #'s_amrron02Cell':amrron02Cell,
+         #'s_amrron03Cell':amrron03Cell,
+         #'s_amrron04Cell':amrron04Cell,
+         #'s_amrron05Cell':amrron05Cell,
+         's_amrron00Email':amrron00Email,
+         's_amrron01Email':amrron01Email,
+         #'s_amrron02Email':amrron02Email,
+         #'s_amrron03Email':amrron03Email,
+         #'s_amrron04Email':amrron04Email,
+         #'s_amrron05Email':amrron05Email
          }
-with open('Configs.json', 'w') as f:
-                json.dump(Configs, f, ensure_ascii=False)
+
+# Write Json
+def ConfigsJSONOut(Configs):
+    with open('Configs.json', 'w') as f:
+        json.dump(Configs, f, ensure_ascii=False)
+    return
+
+# Load and Print            
+def ConfigsJSONInPrint():
+    with open('Configs.json', 'r') as f:
+        parsed = json.load(f)
+        print(parsed)
+    return
+
+#print('Test Block')
+#ConfigsJSONOut(Configs)
+#ConfigsJSONInPrint()

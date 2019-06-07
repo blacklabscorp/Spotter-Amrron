@@ -37,10 +37,12 @@ from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
+from Spot_Configs import ConfigsJSONOut,ConfigsJSONInPrint
 #from Spot_Earthquake4Out import Earthquake
 
 # Load Defaults values
 from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
+from Spot_Configs import Configs
 
 # Set Constants
 callsignCurrent=callsignDefault
@@ -97,7 +99,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
     while True:
         print()
         print()
-        correct=input ('Are these Correct, type [D]efault; Y[es], N[o]:')
+        correct=input ('Are these Correct, type [D]efault; Y[es], N[o], [O]ut:')
         if correct == "D":
             print()
             callsignLast=callsignCurrent
@@ -144,6 +146,11 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Your Grid: ',gridCurrent)
             print()
             break
+        if correct=="O":
+            print()
+            ConfigsJSONOut(Configs)
+            ConfigsJSONInPrint()
+            
     return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
 def WeatherMenu():
