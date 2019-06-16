@@ -84,19 +84,19 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         print(line,end=' ')
                         a='callDate'
                         b=line
-                        xsdict[a]=b          
+                        xsdict[a]=b
                 if line.startswith('<customform>'):
                         formType=line
                         print(line,end=' ')
                         a='<customform>'
                         b=line
-                        xsdict[a]=b 
+                        xsdict[a]=b
                 if line.startswith(':mg:179'):
                         body=line
                         print(line,end=' ')
                         a=':mg:179'
                         b=line
-                        xsdict[a]=b               
+                        xsdict[a]=b
                 if line.startswith('L01'):
                         xs=line.split(',')
                         print(line,end=' ')
@@ -105,7 +105,7 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         xsdict[a]=b
                 if line.startswith('L03'):
                         xs=line.split(',')
-                        print(line,end=' ')    
+                        print(line,end=' ')
                         a=xs[0]
                         b=xs[1]
                         xsdict[a]=b
@@ -163,7 +163,7 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
         configTarget=((target)+'SpotOut_AmrronSpotV3.json')
         with open(configTarget, 'w') as f:
                 json.dump(xsdict, f, ensure_ascii=False)
-
+        return (xsdict)
 
 # Test Block
 #AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
