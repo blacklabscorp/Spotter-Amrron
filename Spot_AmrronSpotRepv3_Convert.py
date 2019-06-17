@@ -5,6 +5,8 @@ import json
 import os
 import glob
 
+from Spot_FLMsgOut_Spotv3 import GenSpotv3
+
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
 dataDir='\\SpotData\\'
@@ -12,25 +14,30 @@ dataPath=workingDir+dataDir
 
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
-flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages'
+flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages\\'
 k2sFileDefault=os.environ["s_K2sDefault"]
+fileBucket = glob.glob(flMsgWorkingDir+'\\*.k2s')
+k2sFileLatest = max(fileBucket, key=os.path.getctime)
+k2sFileCurrent=k2sFileLatest
 
 # Constants from Env variables not from Defaults file
 callsignDefault=os.environ["s_callsignDefault"]
 k2sFileDefault=os.environ["s_k2sDefault"]
 k2sFileLatest=k2sFileDefault
-k2sFileCurrent=k2sFileDefault
 xsdict={}
 
 def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath):
         print('K2S Menu for FlMsg file')
         print()
-        print('[E] Enter file name:')
-        print('[D] ',dataDir,'using default file....',k2sFileDefault)
-        print('[L] FlMsg folder:',flMsgWorkingDir,'using latest file....')
+        print('[E]nter file name:')
+        print()
+        print('[D]efault (last file) from FlMsg folder:',flMsgWorkingDir,'using latest file...')
+        print(k2sFileCurrent)
+        print()
+        print('[N]ew Spotv3 Report')
         print()
         while True:
-                k2sMenu=input('K2s Menu')
+                k2sMenu=input('K2s Menu: ')
                 if k2sMenu=="E":
                         print()
                         k2sFileEntry=input('file name: ')
@@ -46,18 +53,17 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDe
                         break
                 if k2sMenu=="D":
                         print()
-                        k2sFileCurrent=workingDir+dataDir+k2sFileDefault
-                        print(k2sFileCurrent)
-                        AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
-                        break
-                if k2sMenu=="L":
-                        print()
                         fileBucket = glob.glob(flMsgWorkingDir+'\\*.k2s')
-                        print(fileBucket)
+                        #print(fileBucket)
                         k2sFileLatest = max(fileBucket, key=os.path.getctime)
                         k2sFileCurrent=k2sFileLatest
                         print(k2sFileCurrent)
                         AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
+                        break
+                if k2sMenu=="N":
+                        print()
+                        k2sFileCurrent=k2sFileDefault
+                        GenSpotv3()
                         break
         return (k2sFileCurrent)
 
@@ -157,8 +163,7 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         a=xs[0]
                         b=xs[1]
                         xsdict[a]=b
-                        # Write the json file
-
+        # Write the json file
         target=str(dataPath)
         configTarget=((target)+'SpotOut_AmrronSpotV3.json')
         with open(configTarget, 'w') as f:
@@ -166,9 +171,9 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
         return (xsdict)
 
 # Test Block
+AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
 #AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
-#print (k2sFileCurrent)
-#print (flMsgWorkingDir)
+
 
 # Pre-Req Pip Install
 # NONE

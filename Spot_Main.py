@@ -10,7 +10,7 @@ dataPath=workingDir+dataDir
 
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
-flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages'
+flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages\\'
 k2sFileDefault=os.environ["s_K2sDefault"]
 k2sFileCurrent=k2sFileDefault
 
