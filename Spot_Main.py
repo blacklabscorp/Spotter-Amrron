@@ -34,11 +34,12 @@ openWeatherKey=os.environ["s_openWeatherKey"]
 from Spot_GoogleGeoCode import GoogleGeo
 from Spot_Solar import SolarReport
 from Spot_TransmitTwilio import Transmit,TransmitMenu
-from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
+
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
+from Spot_EarthquakesMag import Earthquakes24hrs
 from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint
-#from Spot_Earthquake4Out import Earthquake
+from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
 
 # Load Defaults values
 from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
@@ -223,7 +224,12 @@ def EnvironmentMenu ():
             print('Earthquake regional Reports')
             print()
             USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent,dataPath)
-            #Earthquake()
+            Earthquake24hrs()
+            break
+        if environmentMenu=="EM":
+            print()
+            print('Earthquake Daily Mag Report')
+            Earthquake24hrs()
             break
         if environmentMenu=="R":
             print()
@@ -282,8 +288,6 @@ while True:
         quit()
         
 #print('Test Block')
-#print('I have reached the end')
-#print('Main Resuls')
 #print('CallsignCurrent: ',callsignCurrent)
 #print('Postal code Current: ',postalcodeCurrent)
 #print('GrideCurrent: ',gridCurrent)

@@ -8,22 +8,20 @@ import glob
 from Spot_FLMsgOut_Spotv3 import GenSpotv3
 
 # Env Data & Working directories
-workingDir=os.path.dirname(os.path.abspath(__file__))
-dataDir='\\SpotData\\'
-dataPath=workingDir+dataDir
+workingDir = os.path.dirname(os.path.abspath(__file__))
+dataDir = '\\SpotData\\'
+dataPath = workingDir+dataDir
 
 # FlMsg working directories
-UserProfile=os.environ["USERPROFILE"]
-flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages\\'
-k2sFileDefault=os.environ["s_K2sDefault"]
+UserProfile = os.environ["USERPROFILE"]
+flMsgWorkingDir = UserProfile+'\\NBEMS.files\\ICS\\messages\\'
+k2sFileDefault = os.environ["s_K2sDefault"]
 fileBucket = glob.glob(flMsgWorkingDir+'\\*.k2s')
 k2sFileLatest = max(fileBucket, key=os.path.getctime)
-k2sFileCurrent=k2sFileLatest
+k2sFileCurrent = k2sFileLatest
 
 # Constants from Env variables not from Defaults file
-callsignDefault=os.environ["s_callsignDefault"]
-k2sFileDefault=os.environ["s_k2sDefault"]
-k2sFileLatest=k2sFileDefault
+callsignDefault = os.environ["s_callsignDefault"]
 xsdict={}
 
 def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath):
@@ -67,7 +65,7 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDe
                         break
         return (k2sFileCurrent)
 
-#iterating through FlMsg file into a JSON format
+# iterating through FlMsg file into a JSON format
 def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath):
         for line in open(k2sFileCurrent):
         # trim whitespace
@@ -163,7 +161,6 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
                         a=xs[0]
                         b=xs[1]
                         xsdict[a]=b
-        # Write the json file
         target=str(dataPath)
         configTarget=((target)+'SpotOut_AmrronSpotV3.json')
         with open(configTarget, 'w') as f:
@@ -171,8 +168,8 @@ def AmrronSpotRepv3Json (workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,calls
         return (xsdict)
 
 # Test Block
-AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
-#AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
+# AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
+# AmrronSpotRepv3Json(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
 
 
 # Pre-Req Pip Install
