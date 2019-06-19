@@ -93,6 +93,6 @@ def ConfigsJSONInPrint(dataPath):
         print(parsed)
     return 
 
-#print('Test Block')
-#ConfigsJSONOut(secretConfigs,dataPath)
-#ConfigsJSONInPrint(dataPath)
+# print('Test Block')
+# ConfigsJSONOut(secretConfigs,dataPath)
+# ConfigsJSONInPrint(dataPath)
