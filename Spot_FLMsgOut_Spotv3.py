@@ -111,12 +111,23 @@ def Spotv3Load():
           oldL10=str(spotv3['L10'])
           oldL11=str(spotv3['L11'])
           return 
-def main():
+def flmsgout_spotv3_main():
     Spotv3Load()
     # print('Variable Test')
     print('The last report had the following attributes, you will be asked to confirm any changes for the next spot report')
     print()
     updates=1
+    global newL1
+    global newL2
+    global newL3
+    global newL4
+    global newL5
+    global newL6
+    global newL7
+    global newL8
+    global newL9
+    global newL10
+    global newL11
     while True:
               print()
               print('[1] TO: Receipient: Current...')
@@ -184,14 +195,13 @@ def main():
               if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
                     print('Spot updated')
                     break
-    GenSpotv3()
     print('Files were created')
 
 
 # M A I N
 if __name__ == "__main__":
           
-    main()
+   flmsgout_spotv3_main ()
 
 
 

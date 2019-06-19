@@ -256,12 +256,12 @@ while True:
     mainMenu=input ('Which option would you like...')
     if mainMenu=="I":
         print()
-       # callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
-       # print('Input Menu new values')
-       # print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
-       # print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)
-       # print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
-       # print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
+        callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
+        print('Input Menu new values')
+        print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
+        print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)
+        print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
+        print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
     if mainMenu=="G":
         print()
         GoogleGeo(postalcodeCurrent,xDefault,yDefault)
