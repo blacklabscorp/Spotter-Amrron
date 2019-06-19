@@ -5,7 +5,7 @@ import json
 import os
 import glob
 
-from Spot_FLMsgOut_Spotv3 import GenSpotv3
+from Spot_FLMsgOut_Spotv3 import GenSpotv3,flmsgout_spotv3_main
 
 # Env Data & Working directories
 workingDir = os.path.dirname(os.path.abspath(__file__))
@@ -61,6 +61,7 @@ def AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDe
                 if k2sMenu=="N":
                         print()
                         k2sFileCurrent=k2sFileDefault
+                        flmsgout_spotv3_main()
                         GenSpotv3()
                         break
         return (k2sFileCurrent)

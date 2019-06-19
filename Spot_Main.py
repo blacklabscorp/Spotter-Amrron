@@ -33,6 +33,7 @@ openWeatherKey=os.environ["s_openWeatherKey"]
 # Import Functions
 from Spot_GoogleGeoCode import GoogleGeo
 from Spot_Solar import SolarReport
+from Spot_OTP import otp_main
 from Spot_TransmitTwilio import Transmit,TransmitMenu
 
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
@@ -40,6 +41,7 @@ from Spot_USGSEarthquake import USGSEarthquake
 from Spot_EarthquakesMag import Earthquakes24hrs
 from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint
 from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
+
 
 # Load Defaults values
 from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
@@ -150,8 +152,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
         if correct=="O":
             print()
             ConfigsJSONOut(secretConfigs,dataPath)
-            ConfigsJSONInPrint(dataPath)
-            
+            ConfigsJSONInPrint(dataPath)   
     return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
 def WeatherMenu():
@@ -210,6 +211,7 @@ def EnvironmentMenu ():
         print('Option: [M] Return to Main Inputs')
         print('Option: [S] Default Sun Weather')
         print('Option: [EQ] Earthquake activity')
+        print('Option: [EM] Earthquake Magnitide last 24hrs')
         print('Option: [R] Radiation recordings')
         environmentMenu=input ('Which option would you like...')
         if environmentMenu=="M":
@@ -224,12 +226,12 @@ def EnvironmentMenu ():
             print('Earthquake regional Reports')
             print()
             USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault,postalcodeCurrent,dataPath)
-            Earthquake24hrs()
+            Earthquakes24hrs()
             break
         if environmentMenu=="EM":
             print()
             print('Earthquake Daily Mag Report')
-            Earthquake24hrs()
+            Earthquakes24hrs()
             break
         if environmentMenu=="R":
             print()
@@ -254,7 +256,7 @@ while True:
     mainMenu=input ('Which option would you like...')
     if mainMenu=="I":
         print()
-        callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
+       # callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
        # print('Input Menu new values')
        # print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
        # print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)

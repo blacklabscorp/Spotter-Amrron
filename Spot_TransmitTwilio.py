@@ -18,6 +18,7 @@ amrron01Cell=os.environ["s_amrron01Cell"]
 #amrron04Cell=os.environ["s_amrron04Cell"]
 #amrron05User=os.environ["s_amrron05User"]
 #amrron05Cell=os.environ["s_amrron05Cell"]
+from Spot_OTP import *
 
 # Transmit Menu
 def TransmitMenu():
@@ -39,6 +40,7 @@ def TransmitMenu():
         print('Option: [01P] ',amrron01User,' Phone Delivery')
         print('Option: [CAT] All CA SMS Delivery')
         print('Option: [CAP] All CA Phone Delivery')
+        print('Option: [OTP] One Time Pad practice')
         transmitMenu=input ('Which option would you like...')        
         if transmitMenu=="M":
             print()
@@ -77,6 +79,13 @@ def TransmitMenu():
             print('Off to Transmit...')
             print()
             Transmit(transmitMenu)
+        if transmitMenu=='OTP':
+            print()
+            print('[OTP] One Time Pad (experimental / Table CT NO 1 English)')
+            otp_main()
+            ctno1english()
+            padin()
+            padout()
             break
         return None
 
@@ -250,6 +259,7 @@ def Transmit(transmitMenu):
                     )
         print(call.sid)
     return
+
 #print('Test Block')
 #TransmitMenu()
 
