@@ -13,8 +13,8 @@ def AmConn(amConnLevel):
 
 # Experimental to scrape AmConn #
 #print('Test Block')
-#AmConn(amConnLevel)
-#print(amConnLevel,page)
+AmConn(amConnLevel)
+print(amConnLevel,page)
 
 # PRE-REQs to run this module
 # Process URL requests
