@@ -1,0 +1,262 @@
+<HTML>
+<!--AMRRON_SITREPV3_0.html DISTRIBUTION COPY-->
+<HEAD>
+	<TITLE>AmRRON Sitrep V3_0</TITLE>
+	<META NAME="CREATED" CONTENT="20140403">
+	<META NAME="CHANGED" CONTENT="20160707'>
+	<META NAME="EDITABLE" CONTENT="true">
+	<META NAME="MENU_ITEM" CONTENT="AmRRON SITREP V3_0">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<FORM>
+  <!-- Form Input Tables -->
+  <TABLE WIDTH=760 BORDER=1 CELLPADDING=4 CELLSPACING=0>
+    <!--DWLayoutTable-->
+    <tr valign=top>
+      <td colspan=3 valign=top> <font size="5" face="Arial, Helvetica, sans-serif"><B>AmRRON
+        SITREP</B><BR>
+        <em><font size="2">(To pass along brief reports about a developing situation,
+        and the dangers it may pose to you, your community, or to the region.)</font>
+        </em></font></td>
+    </tr>
+    <tr valign=top>
+      <td width="242"><SPAN STYLE="background: #e0e0e0"> <font face="Arial, Helvetica, sans-serif">
+        <B><font size="3">1. TO: </font></B><em><font size="2">(Recipient)</font></em><br>
+        <INPUT NAME="L01" TYPE="TEXT" id="L01" size="25">
+        </font></span></td>
+		<td width="242"> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"> <B><font size="3">
+	  	2. FROM:</font></B> <em><font size="2">(Sender)</font></em><br>
+        <INPUT NAME="L021" TYPE="TEXT" id="L02" size="25">
+        </font>
+		</span>
+		</td>
+	  <td width="243"><SPAN STYLE="background: #e0e0e0"> <font face="Arial, Helvetica, sans-serif">
+        <B><font size="3">3. PRECEDENCE:</font></B><br>
+        </font><font face="Arial, serif"><font face="Arial, serif"><font style="font-size: 11pt;">
+        <select name="L03" id="L03">
+          <option value="R" selected>ROUTINE</option>
+          <option value="P">PRIORITY</option>
+          <option value="O">IMMEDIATE</option>
+          <option value="Z">FLASH</option>
+        </select>
+        </font></font></font><font face="Arial, Helvetica, sans-serif"> </font></span></td>
+    </tr>
+  </TABLE>
+  <TABLE WIDTH=760px BORDER=1 CELLPADDING=4 CELLSPACING=0>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><B><font size="3">4.
+        Current DTG:</font> </B><em><font size="2"> (YYYYMMDD-HHMMZ Use UTC)</font></em><br>
+        <INPUT NAME="L04" TYPE="TEXT" id="L04" size="35">
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><B><font size="3">5.
+				Incident Number:</font></B><em><font size="2"> (ST-SFX-###)</font></em><br>
+        <INPUT NAME="L05" TYPE="TEXT" id="L05" size="35">
+        </font></span></td>
+    </tr>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><B><font size="3">6.
+				Expiration:</font> </B> <em><font size="2">(YYYYMMDD-HHMMZ Use UTC)</font></em><br>
+        <INPUT NAME="L06" TYPE="TEXT" id="L06" size="35">
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif">
+        <b><font size="3">7. Location:</font></b> <em><font size="2">(Lat/Lon, Grid Square, City)</font></em><br>
+        <INPUT NAME="L07" TYPE="TEXT" id="L07" size="35">
+        </font></span></td>
+    </tr>
+  </TABLE>
+  <TABLE WIDTH=760px BORDER=1 CELLPADDING=4 CELLSPACING=0>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">8.
+				Incident Status:</font></b><br>
+        <select name="L08" id="L08">
+          <option value="" selected>NEW</option>
+          <option value="ONG">ONGOING</option>
+          <option value="RES">RESOLVED</option>
+        </select>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">9.
+				Size and Scope:</font></b><br>
+        <select name="L09" id="L09">
+          <option value="" selected>LOCAL</option>
+          <option value="REG">REGIONAL</option>
+          <option value="NAT">NATIONAL</option>
+        </select>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">10.
+				Overall Hazard:</font></b><br>
+        <SELECT NAME="L10" id="L10">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </SELECT>
+        </font></span></td>
+    </tr>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">11.
+				Current Weather:</font></b><br>
+        <select name="L11" id="L11">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </select>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">12.
+				48 hr Weather:</font></b><br>
+        <select name="L12" id="L12">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </select>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">13.
+				Infrastructure:</font></b><br>
+        <SELECT NAME="L13" id="L13">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </SELECT>
+        </font></span></td>
+    </tr>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">14.
+				Political:</font></b><br>
+        <SELECT NAME="L14" id="L14">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </SELECT>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">15.
+				Civil:</font></b><br>
+        <select name="L15" id="L15">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </select>
+        </font></span></td>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">16.
+				Communications:</font></b><br>
+        <SELECT NAME="L16" id="L16">
+          <option value="" selected>GREEN</option>
+          <option value="YEL">YELLOW</option>
+          <option value="RED">RED</option>
+        </SELECT>
+        </font></span></td>
+    </tr>
+  </table>
+  <TABLE WIDTH=760px BORDER=1 CELLPADDING=4 CELLSPACING=0>
+    <tr valign=top>
+      <td> <SPAN STYLE="background: #e0e0e0"><font face="Arial, Helvetica, sans-serif"><b><font size="3">17.
+				Remarks:</font></b><br>
+        <TEXTAREA NAME="L17" COLS=90 ROWS=38 WRAP=SOFT id="L17"></TEXTAREA>
+        </font></span></td>
+    </tr>
+	<tr valign=top>
+      <td><font face="Arial, Helvetica, sans-serif"><b><font size="4">End of Report</font></b><br>
+        <font size="1">AFR-110 REV 20160707</font></font></td>
+    </tr>
+ </table>
+</FORM>
+<br>
+<table WIDTH=760px BORDER=1 CELLPADDING=4 CELLSPACING=0>
+  <!-- Instruction Table -->
+  	<tr>
+		<td COLSPAN=4 VALIGN=TOP> <P ALIGN=LEFT STYLE="margin-right: 0in"> <FONT FACE="Arial, sans-serif" SIZE=4>
+          <B>Instructions</B></FONT> </P>
+
+		</td>
+	</tr>
+	<tr>
+
+    <td> <ol>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>TO (Recipient)</strong>:<br>
+          Enter the intended recipient&#8217;s Ham Call Sign, AmRRON Call Sign,
+          or other means of identification (depending on the mode of transmission
+          and FCC regulations).</font></li>
+        <li><strong><font size="2" face="Arial, Helvetica, sans-serif">FROM (Sender):</font></strong>
+          <font size="2" face="Arial, Helvetica, sans-serif"><br>
+          Enter your Ham Call Sign, AmRRON Call Sign, or other means of identification
+          (depending on the mode of transmission and FCC regulations). </font></li>
+		  <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Precedence:</strong><br>
+          Select "Flash," "Immediate," "Priority," or "Routine" in accordance with established guidelines.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Current
+          DTG:</strong><br>
+          Enter the date and time in the Date-Time Group (DTG) format: YYYYMMDDHHMMZ.
+          The &#8220;Z&#8221; stands for &#8220;Zulu&#8221; Time, Greenwich Mean
+          Time, or Universal Time. If you don&#8217;t know the Zulu Time, indicate
+          your local time zone; for example, if it is 11/02/14 1:13 PM PST, enter
+          it as follows: 201411021313PST.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Incident
+          Number:</strong><br>
+          If this is a new incident, enter the exact same thing you entered in
+          the &#8220;Current DTG&#8221; block. This will be the incident number.
+          If you are reporting an update on an incident that has already been
+          reported, enter that incident number.</font></li>
+        <li><strong><font size="2" face="Arial, Helvetica, sans-serif">Expiration:</font></strong><br>
+          <font size="2" face="Arial, Helvetica, sans-serif">Enter the DTG that
+          you believe that it would no longer be beneficial for other stations
+          to relay your message.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Location:</strong><br>
+          Enter the location of the incident. For the purposes of form, this is
+          of far more importance that your own location. Be concise, but descriptive.
+          You can enter latitude/longitude coordinates, maidenhead grid square
+          coordinates, cross-streets, or whatever description is necessary. If
+          there isn&#8217;t room in this portion of the form, enter &#8220;see
+          Remarks&#8221; and enter the location in the Remarks section.</font></li>
+        <li><strong><font size="2" face="Arial, Helvetica, sans-serif">Incident
+          Status:</font></strong><font size="2" face="Arial, Helvetica, sans-serif"><br>
+          Select whether this is a <strong>New</strong> incident, an <strong>Ongoing</strong>
+          incident that you are giving an update on, or a <strong>Resolved</strong>
+          incident.</font></li>
+        <li><strong><font size="2" face="Arial, Helvetica, sans-serif">Size and
+          Scope:</font></strong><font size="2" face="Arial, Helvetica, sans-serif"><br>
+          Select whether this incident is <strong>Local</strong>, <strong>Regional</strong>,
+          or <strong>National</strong> in scope. </font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Overall
+          Hazard:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the overall hazard
+          status.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Current
+          Weather:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow,</strong>&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the current weather
+          status.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>48 hr Weather:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the anticipated weather
+          status in the next 48 hours.</font></li>
+        <li><strong><font size="2" face="Arial, Helvetica, sans-serif">Infrastructure:</font></strong><font size="2" face="Arial, Helvetica, sans-serif"><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the infrastructure
+          status. This includes the availability of utilities, transportation,
+          medical, and other services.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Political:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the status of political
+          stability and tenor.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Civil:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the civil status.
+          Consider whether there is civil instability or unrest.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Communications:</strong><br>
+          Select &#8220;<strong>Green</strong>,&#8221; &#8220;<strong>Yellow</strong>,&#8221;
+          or &#8220;<strong>Red</strong>&#8221; to describe the communications
+          status. This includes the ability to sustain communications. Consider
+          2nd and 3rd order influences such as the availability of power, internet,
+          surveillance, etc.</font></li>
+        <li><font size="2" face="Arial, Helvetica, sans-serif"><strong>Remarks:</strong><br>
+          This is where you enter everything else that doesn&#8217;t fit in the
+          form. Do not forget to indicate the source of your information. Did
+          you see this on the internet? If so, what is the source URL? Did you
+          see or hear this on broadcast news? If so, what station did you hear
+          it on? Did you see the incident yourself? Did you hear it from a second
+          party? Remember to be factual, concise, and specific.<br>
+          <br>
+          </font> </li>
+      </ol>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
