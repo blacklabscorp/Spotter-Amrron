@@ -60,6 +60,9 @@ USGSParameter03='maxradius'
     # order results by time ascending
 USGSParameter04='orderby=time-asc'
 
+# Nextdoor
+nextdoorServiceUrl='https://nextdoor.com/crime_and_safety/'
+
 #Global scoped variables
 oldL1=''
 oldL2=''
