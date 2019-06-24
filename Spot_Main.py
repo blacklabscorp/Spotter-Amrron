@@ -40,11 +40,10 @@ from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
 from Spot_EarthquakesMag import Earthquakes24hrs
 from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint,secretConfigs
-from Spot_AmrronSpotRepv3_Convert import AmrronSpotRepv3
-
+from Spot_FlMsgMenu import flmsgmenu_main
 
 # Load Defaults values
-from Spot_Defaults import spotterTimeDate,xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey,USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter02,USGSParameter03,USGSParameter04,xDefault,yDefault
+from Spot_Defaults import *
 
 # Set Constants
 callsignCurrent=callsignDefault
@@ -55,7 +54,6 @@ callsignLast=callsignCurrent
 postalcodeLast=postalcodeCurrent
 cityStateLast=cityStateCurrent
 gridLast=gridCurrent
-
 
 # Capturing time 
 import datetime
@@ -270,7 +268,7 @@ while True:
         print()
     if mainMenu=="F":
         print()
-        AmrronSpotRepv3(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
+        flmsgmenu_main(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
         print() 
     if mainMenu=="W":
         print()

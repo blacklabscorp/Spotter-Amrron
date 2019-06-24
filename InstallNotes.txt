@@ -1,7 +1,7 @@
 These additional libraries will need to be installed in addition to Python 3.7.3
 pip install --upgrade pip
 
-Twilio library
+Twilio library for SMS and phone integrations
 pip install twilio
 
 Beautiful Soup for Html/XML scrapping
@@ -10,19 +10,23 @@ pip install bs4
 Http Requests
 pip install request or requests
 
-Open Weather Wrapper
+Open Weather Wrapper for python interfacing to OpenWeather
 pip install pyowm
 usage notes: https://pyowm.readthedocs.io/en/latest/usage-examples-v2/weather-api-usage-examples.html
 
-Objectpath
+Objectpath use for walking an XML file
 Pip install objectpath
 
-PYQRCode
+PYQRCode for purposes of creating a QRcode for obscuring the target location from plain site; experimentation for stenography
 Pip Install pyqrcode
+
+WatchDog for file directory auditing; will be used in automation of base
+PIP install watchdog
 
 Out of working directory where the application will be installed, create a subdirectory called SpotData this is where output files will go.
 
-The following environment variables are used to isolated PII or sensitive key information to memory so as to be less likely to be mistakenly uploaded to repository
+The following environment variables are used to isolate PII or sensitive key information to memory so as to be less likely to be mistakenly uploaded to repository.  The Input menu has an ability to export these sensitive environment variables to a JSON to allow for easier transportability across platforms.
+
 These are the variables name you'll want to populate with data.
 
 s_accuWeatherKey		AccuWeather API Key (requires sign-up for API key from Accuweather)

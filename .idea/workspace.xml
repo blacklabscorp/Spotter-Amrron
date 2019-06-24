@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f231c033-132b-4db9-af29-8e4da6b4bba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotData/KK6JGJ-20190616-214247.k2s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotData/KK6JGJ-20190616-214427.k2s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spot_AmrronSpotRepv3_Convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spot_AmrronSpotRepv3_Convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spot_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spot_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/research/Open Lens.mmap" beforeDir="false" />
-    </list>
+    <list default="true" id="f231c033-132b-4db9-af29-8e4da6b4bba3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Spot_AmrronSpotRepv3_Convert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
+            <state relative-caret-position="17">
+              <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
               <folding>
                 <element signature="e#81#92#0" expanded="true" />
               </folding>
@@ -111,7 +104,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="20" width="1260" height="720" extended-state="1" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -157,8 +149,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Spot_AmrronSpotRepv3_Convert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
+        <state relative-caret-position="17">
+          <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
           <folding>
             <element signature="e#81#92#0" expanded="true" />
           </folding>
