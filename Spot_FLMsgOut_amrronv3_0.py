@@ -12,7 +12,7 @@ import os
 import time
 import shutil
 import datetime
-from Spot_Defaults import *
+from SpotDefaults import *
 
 # Capturing time 
 timeLocalCurrent = datetime.datetime.now().isoformat()
@@ -108,10 +108,6 @@ newL08_sp = ''
 newL09_sp = ''
 newL10_sp = ''
 newL11_sp = ''
-
-# Set variables
-from Spot_Defaults import *
-
 configTarget = ''
 spotRep = {}
 sitRep = {}

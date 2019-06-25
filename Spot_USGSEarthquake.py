@@ -5,7 +5,7 @@ import os
 import pprint, pickle
 
 # Constants
-from Spot_Defaults import USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter01,USGSParameter02,USGSParameter03,USGSParameter04,spotterTimeDate,xDefault,yDefault
+from SpotDefaults import USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSMethod01,USGSDateTime,USGSParameter01,USGSParameter02,USGSParameter03,USGSParameter04,spotterTimeDate,xDefault,yDefault
 pc={}
 postalcode=os.environ["s_postalcodeDefault"]
 postalcodeStr=str (postalcode)

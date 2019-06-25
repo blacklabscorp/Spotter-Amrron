@@ -7,7 +7,7 @@ import datetime
 
 #Functions:
 from pyowm import OWM
-from Spot_Defaults import xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey
+from SpotDefaults import xDefault,yDefault,dmrIdDefault,callsignDefault,postalcodeDefault,gridDefault,openWeatherServiceUrl,openWeatherPreKey
 
 # Constants initialization
 openWeatherKey=os.environ["s_openWeatherKey"]

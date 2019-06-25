@@ -5,7 +5,7 @@ import os
 import pprint, pickle
 
 # Constants
-from Spot_Defaults import googleGeoCodeServiceUrl,googleGeoPreKey,spotterTimeDate,xDefault,yDefault
+from SpotDefaults import googleGeoCodeServiceUrl,googleGeoPreKey,spotterTimeDate,xDefault,yDefault
 googleKey=os.environ["s_googleKey"]
 pc={}
 postalcode=os.environ["s_postalcodeDefault"]

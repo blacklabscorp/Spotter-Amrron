@@ -6,7 +6,9 @@ import json
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
 dataDir='\\SpotData\\'
+configDir='\\SpotConfigs\\'
 dataPath=workingDir+dataDir
+configsPath=workingDir+configDir
 
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
@@ -39,11 +41,11 @@ from Spot_TransmitTwilio import Transmit,TransmitMenu
 from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
 from Spot_EarthquakesMag import Earthquakes24hrs
-from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint,secretConfigs
+from SpotConfigs import ConfigsJSONOut,ConfigsJSONInPrint,secretConfigs
 from Spot_FLMsgOut_amrronv3_0  import *
 
 # Load Defaults values
-from Spot_Defaults import *
+from SpotDefaults import *
 
 # Set Constants
 callsignCurrent=callsignDefault

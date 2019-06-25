@@ -1,7 +1,7 @@
 ﻿# Solar conditions
 import requests
 from bs4 import BeautifulSoup
-from Spot_Defaults import solarServiceUrl
+from SpotDefaults import solarServiceUrl
 
 def SolarReport():
         page = requests.get(solarServiceUrl)
