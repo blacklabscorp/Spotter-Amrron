@@ -11,8 +11,11 @@ xDefault=os.environ["s_xDefault"]
 yDefault=os.environ["s_yDefault"]
 dmrIdDefault=os.environ["s_dmrIdDefault"]
 callsignDefault=os.environ["s_callsignDefault"]
+callsignPrefix='KK6'
 gridDefault=os.environ["s_gridDefault"]
 postalcodeDefault=os.environ["s_postalcodeDefault"]
+cityDefault=os.environ["s_cityDefault"]
+stateDefault=os.environ["s_stateDefault"]
 
 # Google API Path/Key
 googleGeoCodeServiceUrl = 'https://maps.googleapis.com/maps/api/geocode/json?'
