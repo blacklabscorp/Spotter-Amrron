@@ -262,8 +262,8 @@ def SettingsMenu ():
             print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
             print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
             print()
-            break
             HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
+            break
         if settingsMenu=="Hive":
             print()
             break
