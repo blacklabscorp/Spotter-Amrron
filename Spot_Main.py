@@ -40,7 +40,7 @@ from Spot_OpenWeatherLight import DefaultWeather,ThreeDayForecast
 from Spot_USGSEarthquake import USGSEarthquake
 from Spot_EarthquakesMag import Earthquakes24hrs
 from Spot_Configs_PC import ConfigsJSONOut,ConfigsJSONInPrint,secretConfigs
-from Spot_FlMsgMenu import flmsgmenu_main
+from Spot_FLMsgOut_amrronv3_0  import *
 
 # Load Defaults values
 from Spot_Defaults import *
@@ -268,7 +268,8 @@ while True:
         print()
     if mainMenu=="F":
         print()
-        flmsgmenu_main(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
+        flmsgout_amrronv3_0_main()
+        #flmsgmenu_main(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
         print() 
     if mainMenu=="W":
         print()
