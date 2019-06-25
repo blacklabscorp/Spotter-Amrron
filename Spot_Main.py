@@ -108,7 +108,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
     while True:
         print()
         print()
-        correct=input ('Are these Correct, type [D]efault; Y[es], N[o], [O]ut:')
+        correct=input ('Are these Correct, type [D]efault; Y[es], N[o]:')
         if correct == "D":
             print()
             callsignLast=callsignCurrent
@@ -143,8 +143,9 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('You entered Postal code: ',postalcodeCurrent, ' Previous Postal code was: ',postalcodeLast)
             print('You entered City,State:',cityStateCurrent,' Previous City,State was:',cityStateLast)
             print('You entered Grid: ',gridCurrent,' Previous Grid was: ',gridLast)
-            print('You entered X coordinates: ',xCurrent,' and Y coordinates:',yCurrent,
+            print('You entered X coordinates: ',xCurrent,' and Y coordinates:',yCurrent)
             print('Previous X: ',xLast,' and Y was:',yLast)
+            print()
             break
         if correct == "Y":
             print()
@@ -158,10 +159,6 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Your X:',xCurrent,' Your Y:',yCurrent)
             print()
             break
-        if correct=="O":
-            print()
-            ConfigsJSONOut(secretConfigs,dataPath)
-            ConfigsJSONInPrint(dataPath)   
     return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
 def WeatherMenu():
@@ -287,6 +284,7 @@ def SettingsMenu ():
         print('Option: [Main] Main Menu')
         print('Option: [Ham]  Ham station settings')
         print('Option: [Hive] Hive settings')
+        print('Option: [Out] Output current settings')
         print()
         settingsMenu=input ('Which option would you like...')
         print()
@@ -307,6 +305,11 @@ def SettingsMenu ():
             break
         if settingsMenu=="Hive":
             print()
+            break
+        if settingsMenu=="Out":
+            print()
+            ConfigsJSONOut(secretConfigs,dataPath)
+            ConfigsJSONInPrint(dataPath)
             break
 
 def mainmenu():
