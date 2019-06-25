@@ -238,57 +238,85 @@ def EnvironmentMenu ():
             print()
             break
 
-# Main Block
-while True: 
-    print()
-    print('M  A  I  N   M  E  N  U')
-    print('________________________')
-    print()
-    print('[I] Inputs Menu')
-    print('[G] Google data Menu')
-    print('[T] Transmit Menu')
-    print('[F] FlMsg Menu')
-    print('[W] Weather Menu')
-    print('[E} Environment Menu')
-    print('[X] Exit & Quit Program')
-    print()
-    mainMenu=input ('Which option would you like...')
-    if mainMenu=="I":
+def SettingsMenu ():
+    while True:
+        print('S E T T I N G S  M E N U')
+        print('________________________')
         print()
-        callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent=HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
-        print('Input Menu new values')
-        print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
-        print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)
-        print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
-        print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
-    if mainMenu=="G":
+        print('Option: [Main] Main Menu')
+        print('Option: [Ham]  Ham station settings')
+        print('Option: [Hive] Hive settings')
         print()
-        GoogleGeo(postalcodeCurrent,xDefault,yDefault)
-    if mainMenu=="T":
+        settingsMenu=input ('Which option would you like...')
         print()
-        TransmitMenu()
+        if settingsMenu=='Main':
+            print()
+            mainmenu()
+            print
+            break
+        if settingsMenu=="Ham":
+            print()
+            print('Ham Settings new values')
+            print('Your Current Callsign:',callsignCurrent,' Last: ',callsignLast,' Default: ',callsignDefault)
+            print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)
+            print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
+            print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
+            print()
+            break
+            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
+        if settingsMenu=="Hive":
+            print()
+            break
+
+def mainmenu():
+    while True:
         print()
-    if mainMenu=="F":
+        print('M  A  I  N   M  E  N  U')
+        print('________________________')
         print()
-        flmsgout_amrronv3_0_main()
-        #flmsgmenu_main(workingDir,dataDir,k2sFileDefault,flMsgWorkingDir,callsignDefault,k2sFileCurrent,dataPath)
-        print() 
-    if mainMenu=="W":
+        print('[S] Settings Menu')
+        print('[G] Google data Menu')
+        print('[T] Transmit Menu')
+        print('[F] FlMsg Menu')
+        print('[W] Weather Menu')
+        print('[E} Environment Menu')
+        print('[X] Exit & Quit Program')
         print()
-        print('Weather Menu')
-        print()
-        WeatherMenu()
-        print()
-    if mainMenu=="E":
-        print()
-        print
-        print('Environment Menu')
-        print()
-        EnvironmentMenu()
-        print()
-    if mainMenu=="X":
-        quit()
-        
+        mainMenu=input ('Which option would you like...')
+        if mainMenu=="S":
+            print()
+            SettingsMenu () 
+        if mainMenu=="G":
+            print()
+            GoogleGeo(postalcodeCurrent,xDefault,yDefault)
+        if mainMenu=="T":
+            print()
+            TransmitMenu()
+            print()
+        if mainMenu=="F":
+            print()
+            flmsgout_amrronv3_0_main()
+            print() 
+        if mainMenu=="W":
+            print()
+            print('Weather Menu')
+            print()
+            WeatherMenu()
+            print()
+        if mainMenu=="E":
+            print()
+            print()
+            print('Environment Menu')
+            print()
+            EnvironmentMenu()
+            print()
+        if mainMenu=="X":
+            quit()
+# M A I N
+if __name__ == "__main__":
+
+    mainmenu ()
+
 #print('Test Block')
 #print('CallsignCurrent: ',callsignCurrent)
 #print('Postal code Current: ',postalcodeCurrent)
