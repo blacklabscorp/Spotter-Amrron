@@ -245,18 +245,49 @@ def EnvironmentMenu ():
             print()
             break
 
+def flmsgmenu ():
+    while True:
+        print('F L M s g  M E N U')
+        print('________________________')
+        print()
+        print('Option: [M] Main Menu')
+        print('Option: [spotv30] Spot Report v3_0')
+        print('Option: [sitv30] Sit Report v3_0')
+        print()
+        flmsgMenu=input ('Which option would you like...')
+        print()
+        if flmsgMenu in ['M','spotv30','sitv30']:
+            if flmsgMenu=='M':
+                print()
+                mainmenu()
+                print
+                break
+            if flmsgMenu =='spotv30':
+                spotFileFormat=(timestampFlMsg+newL03_sp+'-'+stateDefault+'-'+callsignPrefix+'-000.k2s')
+                spotrepv3_0load(spotFileFormat,target)
+                genspotrepv3_0(spotFileFormat,target)
+                shutil.copy2((target+amrronSpotReportNew),(flMsgWorkingDir+amrronSpotReportNew))
+                break
+            if flmsgMenu=='sitv30':
+                sitFileFormat=(timestampFlMsg+newL03_sr+'-'+stateDefault+'-'+callsignPrefix+'-000.k2s')
+                sitrepv3_0load(sitFileFormat,target)
+                gensitrepv3_0(sitFileFormat,target)
+                shutil.copy((target+amrronSitReportNew),(flMsgWorkingDir+amrronSitReportNew)) 
+                print()
+                break
+
 def locationsmenu ():
     while True:
         print('L O C A T I O N  M E N U')
         print('________________________')
         print()
-        print('Option: [Main] Main Menu')
+        print('Option: [M] Main Menu')
         print('Option: [Location]  Location settings')
         print('Option: [Google Geo] Google GeoCode API using current postalcode: ',postalcodeCurrent)
         print()
         locationsMenu=input ('Which option would you like...')
         print()
-        if locationsMenu=='Main':
+        if locationsMenu=='M':
             print()
             mainmenu()
             print
@@ -281,14 +312,14 @@ def SettingsMenu ():
         print('S E T T I N G S  M E N U')
         print('________________________')
         print()
-        print('Option: [Main] Main Menu')
+        print('Option: [M] Main Menu')
         print('Option: [Ham]  Ham station settings')
         print('Option: [Hive] Hive settings')
         print('Option: [Out] Output current settings')
         print()
         settingsMenu=input ('Which option would you like...')
         print()
-        if settingsMenu=='Main':
+        if settingsMenu=='M':
             print()
             mainmenu()
             print
@@ -319,11 +350,11 @@ def mainmenu():
         print('________________________')
         print()
         print('[S] Settings Menu')
-        print('[L] Locations Menu')
-        print('[T] Transmit Menu')
-        print('[F] FlMsg Menu')
+        print('[L] Locations Menu')      
         print('[W] Weather Menu')
         print('[E} Environment Menu')
+        print('[F] FlMsg Menu')
+        print('[T] Transmit Menu')
         print('[X] Exit & Quit Program')
         print()
         mainMenu=input ('Which option would you like...')
@@ -333,14 +364,6 @@ def mainmenu():
         if mainMenu=="L":
             print()
             locationsmenu()
-        if mainMenu=="T":
-            print()
-            TransmitMenu()
-            print()
-        if mainMenu=="F":
-            print()
-            flmsgout_amrronv3_0_main()
-            print() 
         if mainMenu=="W":
             print()
             print('Weather Menu')
@@ -349,11 +372,19 @@ def mainmenu():
             print()
         if mainMenu=="E":
             print()
-            print()
             print('Environment Menu')
             print()
             EnvironmentMenu()
             print()
+        if mainMenu=="F":
+            print()
+            flmsgmenu()
+            #flmsgout_amrronv3_0_main()
+            print()       
+        if mainMenu=="T":
+            print()
+            TransmitMenu()
+            print()         
         if mainMenu=="X":
             quit()
 # M A I N

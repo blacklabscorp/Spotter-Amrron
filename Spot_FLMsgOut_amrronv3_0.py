@@ -535,8 +535,6 @@ def sitrepv3_0load(sitFileFormat,target):
 
 def flmsgout_amrronv3_0_main():
     print('Which Report do you want to create...')
-    
-    
     report=input('Create [spotv30] or [sitv30]?')
     if report in ['spotv30','sitv30']:
         if report=='spotv30':
