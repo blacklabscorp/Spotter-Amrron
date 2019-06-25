@@ -56,6 +56,10 @@ callsignLast=callsignCurrent
 postalcodeLast=postalcodeCurrent
 cityStateLast=cityStateCurrent
 gridLast=gridCurrent
+xCurrent=xDefault
+xLast=xCurrent
+yCurrent=yDefault
+yLast=yCurrent
 
 # Capturing time 
 import datetime
@@ -80,7 +84,7 @@ def HamDefaultsOutput(callsignDefault,callsignLast,callsignCurrent,postalcodeDef
     print()
 
 # Function: HamDefaultInput
-def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent):
+def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast):
     print('Values')
     print('______')
     print('D E F A U L T')
@@ -88,16 +92,19 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
     print('PostalcodeDefault: ',postalcodeDefault)
     print('City,StateDefault: ',cityStateDefault)
     print('GridDefault: ',gridDefault)
+    print('xDefault: ',xDefault,' yDefault',yDefault)
     print('C U R R E N T')
     print('CallsignCurrent: ',callsignCurrent)
     print('PostalcodeCurrent: ',postalcodeCurrent)
     print('City,StateCurrent: ',cityStateCurrent)
     print('GrideCurrent: ',gridCurrent)
+    print('xCurrent: ',xCurrent,' yCurrent',yCurrent)
     print('L A S T')
     print('CallsignLast: ',callsignLast)
     print('PostalcodeLast: ',postalcodeLast)
     print('City,StateLast: ',cityStateLast)
     print('GridLast: ',gridLast)
+    print('xCurrent: ',xLast,' yCurrent',yLast)
     while True:
         print()
         print()
@@ -136,6 +143,8 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('You entered Postal code: ',postalcodeCurrent, ' Previous Postal code was: ',postalcodeLast)
             print('You entered City,State:',cityStateCurrent,' Previous City,State was:',cityStateLast)
             print('You entered Grid: ',gridCurrent,' Previous Grid was: ',gridLast)
+            print('You entered X coordinates: ',xCurrent,' and Y coordinates:',yCurrent,
+            print('Previous X: ',xLast,' and Y was:',yLast)
             break
         if correct == "Y":
             print()
@@ -146,6 +155,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Your Postal code: ',postalcodeCurrent)
             print('YOur City, State: ',cityStateCurrent)
             print('Your Grid: ',gridCurrent)
+            print('Your X:',xCurrent,' Your Y:',yCurrent)
             print()
             break
         if correct=="O":
@@ -238,6 +248,37 @@ def EnvironmentMenu ():
             print()
             break
 
+def locationsmenu ():
+    while True:
+        print('L O C A T I O N  M E N U')
+        print('________________________')
+        print()
+        print('Option: [Main] Main Menu')
+        print('Option: [Location]  Location settings')
+        print('Option: [Google Geo] Google GeoCode API using current postalcode: ',postalcodeCurrent)
+        print()
+        locationsMenu=input ('Which option would you like...')
+        print()
+        if locationsMenu=='Main':
+            print()
+            mainmenu()
+            print
+            break
+        if locationsMenu=="Location":
+            print()
+            print('GPS Settings new values')
+            print('Your Current Postal code:',postalcodeCurrent,' Last: ',postalcodeLast,' Default: ',postalcodeDefault)
+            print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
+            print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
+            print('Your Current GPS coordinates:',xCurrent,yCurrent)
+            print()
+            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast)
+            break
+        if locationsMenu=="Google Geo":
+            print()
+            GoogleGeo(postalcodeCurrent,xDefault,yDefault)
+            break
+
 def SettingsMenu ():
     while True:
         print('S E T T I N G S  M E N U')
@@ -262,7 +303,7 @@ def SettingsMenu ():
             print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
             print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
             print()
-            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent)
+            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast)
             break
         if settingsMenu=="Hive":
             print()
@@ -275,7 +316,7 @@ def mainmenu():
         print('________________________')
         print()
         print('[S] Settings Menu')
-        print('[G] Google data Menu')
+        print('[L] Locations Menu')
         print('[T] Transmit Menu')
         print('[F] FlMsg Menu')
         print('[W] Weather Menu')
@@ -286,9 +327,9 @@ def mainmenu():
         if mainMenu=="S":
             print()
             SettingsMenu () 
-        if mainMenu=="G":
+        if mainMenu=="L":
             print()
-            GoogleGeo(postalcodeCurrent,xDefault,yDefault)
+            locationsmenu()
         if mainMenu=="T":
             print()
             TransmitMenu()
