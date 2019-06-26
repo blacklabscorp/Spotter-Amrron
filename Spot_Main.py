@@ -109,7 +109,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
     while True:
         print()
         print()
-        correct=input ('Are these Correct, type [D]efault; Y[es], N[o]:')
+        correct=input ('Are these Correct, type [D]efault; [C]urrent, [N]ew:')
         if correct == "D":
             print()
             callsignLast=callsignCurrent
@@ -148,7 +148,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Previous X: ',xLast,' and Y was:',yLast)
             print()
             break
-        if correct == "Y":
+        if correct == "C":
             print()
             print()
             print('Y O U R  V A L U E S')
@@ -160,7 +160,7 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Your X:',xCurrent,' Your Y:',yCurrent)
             print()
             break
-    return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
+    #return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
 def WeatherMenu():
     print('W E A T H E R  M E N U')
@@ -361,7 +361,6 @@ def mainmenu():
         if mainMenu=="F":
             print()
             flmsgmenu()
-            #flmsgout_amrronv3_0_main()
             print()       
         if mainMenu=="T":
             print()
