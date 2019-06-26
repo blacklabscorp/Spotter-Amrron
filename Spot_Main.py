@@ -1,3 +1,4 @@
+
 # Libraries
 import os
 import urllib.request, urllib.parse, urllib.error
@@ -254,27 +255,8 @@ def flmsgmenu ():
         print('Option: [spotv30] Spot Report v3_0')
         print('Option: [sitv30] Sit Report v3_0')
         print()
-        flmsgMenu=input ('Which option would you like...')
+        flmsgout_amrronv3_0_main ()
         print()
-        if flmsgMenu in ['M','spotv30','sitv30']:
-            if flmsgMenu=='M':
-                print()
-                mainmenu()
-                print
-                break
-            if flmsgMenu =='spotv30':
-                spotFileFormat=(timestampFlMsg+newL03_sp+'-'+stateDefault+'-'+callsignPrefix+'-000.k2s')
-                spotrepv3_0load(spotFileFormat,target)
-                genspotrepv3_0(spotFileFormat,target)
-                shutil.copy2((target+amrronSpotReportNew),(flMsgWorkingDir+amrronSpotReportNew))
-                break
-            if flmsgMenu=='sitv30':
-                sitFileFormat=(timestampFlMsg+newL03_sr+'-'+stateDefault+'-'+callsignPrefix+'-000.k2s')
-                sitrepv3_0load(sitFileFormat,target)
-                gensitrepv3_0(sitFileFormat,target)
-                shutil.copy((target+amrronSitReportNew),(flMsgWorkingDir+amrronSitReportNew)) 
-                print()
-                break
 
 def locationsmenu ():
     while True:
@@ -392,24 +374,5 @@ if __name__ == "__main__":
 
     mainmenu ()
 
-#print('Test Block')
-#print('CallsignCurrent: ',callsignCurrent)
-#print('Postal code Current: ',postalcodeCurrent)
-#print('GrideCurrent: ',gridCurrent)
-#print('CallsignDefault: ',callsignDefault)
-#print('Postal code Default: ',postalcodeDefault)
-#print('GridDefault: ',gridDefault)
-#print('CallsignLast: ',callsignLast)
-#print('Postal code Last: ',postalcodeLast)
-#print('GridLast: ',gridLast)
 
-#k2sDataPathTarget = os.path.join(dataPath,k2sDefault)
-#print(workingDir)
-#print(dataDir)
-#print(k2sDefault,'k2sDataPathTarget')
-#print(workingDir+dataDir+k2sDefault)
-
-# PRE-REQs to run this module
-# Process URL requests
-	# pip install request or requests
 

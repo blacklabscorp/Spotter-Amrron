@@ -133,6 +133,7 @@ def genspotrepv3_0(spotFileFormat,target):
     amrronSpotReportNew = (spotFileFormat)
     with open((target+amrronSpotReportNew),'w',encoding = 'utf-8') as f:
         f.write('<flmsg>2.0.5'+'\n')
+        f.write(callsignDefault+' '+timestampFlMsg+'\n')
         f.write(':hdr_ed:22'+'\n')
         f.write('<customform>'+'\n')
         f.write('mg:179 CUSTOM_FORM,AMRRON_SPOTREPV3_0.html'+'\n')
@@ -150,7 +151,7 @@ def genspotrepv3_0(spotFileFormat,target):
     # Write of SpotRep JSON Last to Dict then Json
     spotRepJson = {}
     spotRepJson['FlMsgVersion']='<flmsg>2.0.5'
-    spotRepJson['FlMsgTimestamp']=timestampFlMsg
+    spotRepJson['FlMsgTimestamp']=(callsignDefault+' '+timestampFlMsg)
     spotRepJson['FlMsgHeader']='hdr_ed:22'
     spotRepJson['FlgMsgCustom']='<customform>'
     spotRepJson['mg'] = '179 CUSTOM_FORM,AMRRON_SITREPV3_0.html'
@@ -209,7 +210,7 @@ def gensitrepv3_0(sitFileFormat,target):
     # Writes HTML file for the FLMsg folder then copies to SpotData
     with open((target+amrronSitReportNew),'w',encoding = 'utf-8') as f:
         f.write('<flmsg>2.0.5'+'\n')
-        #f.write(callsignDefault+' '+timestampFlMsg+'\n')
+        f.write(callsignDefault+' '+timestampFlMsg+'\n')
         f.write(':hdr_ed:22'+'\n')
         f.write('<customform>'+'\n')
         f.write(':mg:179 CUSTOM_FORM,AMRRON_SITREPV3_0.html'+'\n')
@@ -233,7 +234,7 @@ def gensitrepv3_0(sitFileFormat,target):
     # Write of SitRep JSON Last;Dict to Json
     sitRepJson={}
     sitRepJson['FlMsgVersion']='<flmsg>2.0.5'
-    sitRepJson['FlMsgTimestamp']=timestampFlMsg
+    sitRepJson['FlMsgTimestamp']=(callsignDefault+' '+timestampFlMsg)
     sitRepJson['FlMsgHeader']='hdr_ed:22'
     sitRepJson['FlgMsgCustom']='<customform>'
     sitRepJson['mg:']='179 CUSTOM_FORM,AMRRON_SITREPV3_0.html'
@@ -269,7 +270,7 @@ def gensitrepv3_0(sitFileFormat,target):
     print(' ',(flMsgWorkingDir+amrronSitReportNew))
     print(  'Stored in the SpotData folder: ',target)
     print(' ',(target+amrronSitReportNew))
-    print()
+    print(callsignDefault+' '+timestampFlMsg)
     return (amrronSitReportNew)
 # Cold starts the input verification process
 # aka 'SpotOut_AmrronSpotRepV3_0Default.json' file
@@ -344,7 +345,7 @@ def spotrepv3_0load(spotFileFormat,target):
         print('[8] Unit (Domestic/Foreign, Police, Military, branch, guard/reserve, Unit Designation, civ supt, volunteer, etc.):')
         print(oldL08_sp)
         newL08_sp = str(input('Enter the change : ') or (oldL08_sp))
-        print()
+        print(callsignDefault+' '+timestampFlMsg)
         print('[9] Time & Duration (Time/Date Group: Yr mo date 24hr-time eg. 20131117 0930 Mtn/Pcfc/Zulu/etc.):')
         print(oldL09_sp)
         newL09_sp = str(input('Enter the change : ') or (oldL09_sp))
@@ -376,7 +377,7 @@ def spotrepv3_0load(spotFileFormat,target):
         answer=input('[Y]es or [N]o? ')
         if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
             break
-        return (newL03_sp)
+        return ()
 
 # Cold starts the input verification process
 # aka 'SpotOut_AmrronSitRepV3_0Default.json' file
@@ -444,7 +445,7 @@ def sitrepv3_0load(sitFileFormat,target):
         print('[2] FROM: Sender): Current...')
         print(callsignDefault)
         newL21_sr = str(input('Enter the change : ') or (callsignDefault))
-        print()
+        print(callsignDefault+' '+timestampFlMsg)
         print('[3] Precedence: (Routine,Priority,Immediate,Flash) Current...')
         print(oldL03_sr)
         newL03_sr = str(input('Enter the change : ') or ('ROU'))
@@ -534,6 +535,8 @@ def sitrepv3_0load(sitFileFormat,target):
         return (newL03_sr)
 
 def flmsgout_amrronv3_0_main():
+    global amrronSpotReviewNew
+    global amrronSitReviewNew
     print('Which Report do you want to create...')
     report=input('Create [spotv30] or [sitv30]?')
     if report in ['spotv30','sitv30']:
@@ -547,11 +550,12 @@ def flmsgout_amrronv3_0_main():
             sitrepv3_0load(sitFileFormat,target)
             gensitrepv3_0(sitFileFormat,target)
             shutil.copy((target+amrronSitReportNew),(flMsgWorkingDir+amrronSitReportNew))
- 
+        
 # M A I N
 if __name__ == "__main__":
           
    flmsgout_amrronv3_0_main ()
+
 
 
 
