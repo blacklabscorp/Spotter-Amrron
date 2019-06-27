@@ -1,4 +1,3 @@
-
 # Libraries
 import os
 import urllib.request, urllib.parse, urllib.error
@@ -68,24 +67,42 @@ timeLocalCurrent = datetime.datetime.now().isoformat()
 timeUtcCurrent=datetime.datetime.utcnow()
 
 # Function: Default values print
-def HamDefaultsOutput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent):
+def HamDefaultsOutput():
     print()
     print('D E F A U L T S')
     print('Callsign Default: ',callsignDefault,' CallsignLast: ',callsignLast)
     print()
-    print('Grid Default: ',gridDefault,' Grid Last: ',gridLast)
-    print('postalcode Default: ',postalcodeDefault,' postalcode Last: ',postalcodeLast)
-    print('City, State Default: ',cityStateDefault,' City,State Last: ',cityStateLast)
+    print('Grid Default:       ',gridDefault,'        Grid Last:       ',gridLast)
+    print('postalcode Default: ',postalcodeDefault,'         postalcode Last: ',postalcodeLast)
+    print('City, State Default:',cityStateDefault,'    City,State Last: ',cityStateLast)
     print()
     print ('Your Default GPS coordinates: Decimal Lattitude: ',xDefault)
-    print ('Your Default GPS coordiante Decimal Longitude: ',yDefault)
+    print ('Your Default GPS coordiante Decimal Longitude:   ',yDefault)
     print()
     print('Current Local Time: ',timeLocalCurrent)
     print('Current GMT Time: ',timeUtcCurrent)
     print()
 
 # Function: HamDefaultInput
-def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast):
+def HamDefaultsInput():
+    global callsignDefault
+    global postalcodeDefault
+    global cityStateDefault
+    global gridDefault
+    global xDefault
+    global yDefault
+    global callsignCurrent
+    global postalcodeCurrent
+    global cityStateCurrent
+    global gridCurrent
+    global xCurrent
+    global yCurrent
+    global callsignLast
+    global postalcodeLast
+    global cityStateLast
+    global gridLast
+    global xLast
+    global yLast
     print('Values')
     print('______')
     print('D E F A U L T')
@@ -120,11 +137,12 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             postalcodeCurrent=postalcodeDefault
             cityStateCurrent=cityStateDefault
             gridCurrent=gridDefault
-            HamDefaultsOutput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateCurrent,cityStateDefault,cityStateLast,gridDefault,gridLast,gridCurrent)
+            HamDefaultsOutput()
             break
         if correct == "N": 
             callsignLast=callsignCurrent
             postalcodeLast=postalcodeCurrent
+            citStateLast=cityStateCurrent
             gridLast=gridCurrent
             print()
             callsignNew=input(' Hit Enter to accept or Callsign to change:')
@@ -160,7 +178,6 @@ def HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefa
             print('Your X:',xCurrent,' Your Y:',yCurrent)
             print()
             break
-    #return callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent
 
 def WeatherMenu():
     print('W E A T H E R  M E N U')
@@ -257,6 +274,7 @@ def flmsgmenu ():
         print()
         flmsgout_amrronv3_0_main ()
         print()
+        return
 
 def locationsmenu ():
     while True:
@@ -282,7 +300,7 @@ def locationsmenu ():
             print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
             print('Your Current GPS coordinates:',xCurrent,yCurrent)
             print()
-            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast)
+            HamDefaultsInput()
             break
         if locationsMenu=="Google Geo":
             print()
@@ -314,7 +332,7 @@ def SettingsMenu ():
             print('Your City,State: ',cityStateCurrent,' Last: ',cityStateLast,' Default: ',cityStateDefault)
             print('Your Current Gridcode:',gridCurrent,' Last: ',gridLast,' Default: ',gridDefault)
             print()
-            HamDefaultsInput(callsignDefault,callsignLast,callsignCurrent,postalcodeDefault,postalcodeLast,postalcodeCurrent,cityStateDefault,cityStateLast,cityStateCurrent,gridDefault,gridLast,gridCurrent,xDefault,xCurrent,xLast,yDefault,yCurrent,yLast)
+            HamDefaultsInput()
             break
         if settingsMenu=="Hive":
             print()
