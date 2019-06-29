@@ -180,6 +180,7 @@ def HamDefaultsInput():
             break
 
 def WeatherMenu():
+    openWeatherKey=''
     WeatherDeviceCurrentTemp=0
     print('W E A T H E R  M E N U')
     print('________________________')
@@ -187,16 +188,16 @@ def WeatherMenu():
     while True:
         print('Option: [M] Return to Main Inputs')
         if openWeatherKey=='':
-            print('Option: (NEEDS API KEY) [Dow] Default Open Weather')
-            print('Option: (NEEDS API KEY) [Low] Local Open Weather')
-            print('Option: (NEEWS API KEY) [Tow] Default & Local Open Weather')
+            print('Option: (NEEDS API KEY) [N/A] Default Open Weather')
+            print('Option: (NEEDS API KEY) [N/A] Local Open Weather')
+            print('Option: (NEEWS API KEY) [N/A] Default & Local Open Weather')
         else:
             print('Option: [Dow] Default Open Weather')
             print('Option: [Low] Local Open Weather')
             print('Option: [Tow] Default & Local Open Weather')
         if WeatherDeviceCurrentTemp==0:
-            print('Option: (NEEDS DEVICE SENSOR Data) [LDW] Local Device Weather')
-            print('Option: [NEEDS DEVICE SENSOR Data) [DDW] Default Device Weather')
+            print('Option: (NEEDS DEVICE SENSOR Data) [N/A] Local Device Weather')
+            print('Option: [NEEDS DEVICE SENSOR Data) [N/A] Default Device Weather')
         else:
             print('Option: [LDW] Local Device Weather')
             print('Option: [DDW] Default Device Weather')
@@ -247,7 +248,7 @@ def EnvironmentMenu ():
         print('Option: [S] Default Sun Weather')
         print('Option: [EQ] Earthquake activity')
         print('Option: [EM] Earthquake Magnitide last 24hrs')
-        print('Option: (FUTURE FEATURE RELEASE)[R] Radiation recordings')
+        print('Option: (FUTURE FEATURE RELEASE)[N/A] Radiation recordings')
         environmentMenu=input ('Which option would you like...')
         if environmentMenu=="M":
             print()
@@ -296,9 +297,9 @@ def locationsmenu ():
         print('Option: [M] Main Menu')
         print('Option: [Location]  Location settings')
         if googleKey=='':
-            print('Option: (NEED API KEY) [GeoCode] Google Geocode API using current postalcode')
+            print('Option: (NEED API KEY) [N/A] Google Geocode API using current postalcode')
         else:
-            print('Option: [Google Geo] Google GeoCode API using current postalcode: ',postalcodeCurrent)
+            print('Option: [geocode] Google GeoCode API using current postalcode: ',postalcodeCurrent)
         print()
         locationsMenu=input ('Which option would you like...')
         print()
@@ -317,7 +318,7 @@ def locationsmenu ():
             print()
             HamDefaultsInput()
             break
-        if locationsMenu=="Google Geo":
+        if locationsMenu=="geocode":
             print()
             GoogleGeo(postalcodeCurrent,xDefault,yDefault)
             break
@@ -329,7 +330,7 @@ def SettingsMenu ():
         print()
         print('Option: [M] Main Menu')
         print('Option: [Ham]  Ham station settings')
-        print('Option: (FUTURE FEATURE) [Hive] Hive settings')
+        print('Option: (FUTURE) [Hive] Hive settings')
         print('Option: [Out] Output current settings')
         print()
         settingsMenu=input ('Which option would you like...')
@@ -371,7 +372,7 @@ def mainmenu():
         print('[E} Environment Menu')
         print('[F] FlMsg Menu')
         if twilioAccountSid == '':
-            print('(NEED API KEY) [T] Transmit Menu')
+            print('(NEED API KEY) [N/A] Transmit Menu')
         else:
             print('[T] Transmit Menu')
         print('[X] Exit & Quit Program')
