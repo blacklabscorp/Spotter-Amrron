@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 export s_callsignDefault=
 export s_dmrIdDefault=
 export s_k2sDefault=
@@ -17,3 +18,27 @@ export s_amrron00Cell=
 export s_amrron01Cell=
 export s_amrron00Email=
 export s_amrron01Email=
+=======
+	
+export s_callsignDefault="KK6JGJ"
+export s_dmrIdDefault="3107960"
+export s_k2sDefault="C:\\Users\\rpremo\\NBEMS.files\\ICS\\messages\\KK6JGJ-20190616-083653.k2s"
+export s_xDefault="37.82"
+export s_yDefault="-122.2"
+export s_gridDefault="CM87vt"
+export s_postalcodeDefault="94611"
+export s_googleKey="AIzaSyCSmyDV0awW3IcRiQXLeEYz6tnVojop3fc"
+export s_accuWeatherKey="eqg2lt6j4Fwxe0p1955cbZhGJVGh8nOj"
+export s_OpenWeatherKey="3c6ed2ada5336a1f3f08ee54f79df8f7"
+export s_twilioAccountSid="AC7937533a2f8fb723753505a98bf23705"
+export s_twilioAmrronCell="+12132677669"
+export s_twilioAuthToken="65a8fab19a78dad7a25acd486bda616f"
+export s_amrron00User="Romeo07"
+export s_amrron01User="OscarRomeo01"
+export s_amrron00Cell="+15104262222"
+export s_amrron01Cell="+19252474245"
+export s_amrron00Email="romeo_07@unseen.is"
+export s_amrron01Email="OscarRomeo01@protonmail.com"
+
+
+>>>>>>> Stashed changes
