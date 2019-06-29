@@ -180,16 +180,27 @@ def HamDefaultsInput():
             break
 
 def WeatherMenu():
+    WeatherDeviceCurrentTemp=0
     print('W E A T H E R  M E N U')
     print('________________________')
     print()
     while True:
         print('Option: [M] Return to Main Inputs')
-        print('Option: [Dow] Default Open Weather')
-        print('Option: [Low] Local Open Weather')
-        print('Option: [Tow] Default & Local Open Weather')
-        print('Option: [LDW] Local Device Weather')
-        print('Option: [DDW] Default Device Weather')
+        if openWeatherKey=='':
+            print('Option: (NEEDS API KEY) [Dow] Default Open Weather')
+            print('Option: (NEEDS API KEY) [Low] Local Open Weather')
+            print('Option: (NEEWS API KEY) [Tow] Default & Local Open Weather')
+        else:
+            print('Option: [Dow] Default Open Weather')
+            print('Option: [Low] Local Open Weather')
+            print('Option: [Tow] Default & Local Open Weather')
+        if WeatherDeviceCurrentTemp==0:
+            print('Option: (NEEDS DEVICE SENSOR Data) [LDW] Local Device Weather')
+            print('Option: [NEEDS DEVICE SENSOR Data) [DDW] Default Device Weather')
+        else:
+            print('Option: [LDW] Local Device Weather')
+            print('Option: [DDW] Default Device Weather')
+        print()
         weatherMenu=input ('Which option would you like...')        
         if weatherMenu=="M":
             print()
@@ -236,7 +247,7 @@ def EnvironmentMenu ():
         print('Option: [S] Default Sun Weather')
         print('Option: [EQ] Earthquake activity')
         print('Option: [EM] Earthquake Magnitide last 24hrs')
-        print('Option: [R] Radiation recordings')
+        print('Option: (FUTURE FEATURE RELEASE)[R] Radiation recordings')
         environmentMenu=input ('Which option would you like...')
         if environmentMenu=="M":
             print()
@@ -261,6 +272,7 @@ def EnvironmentMenu ():
             print()
             print('Radiation regional Reports')
             print()
+            print('Future Feature release')
             break
 
 def flmsgmenu ():
@@ -283,7 +295,10 @@ def locationsmenu ():
         print()
         print('Option: [M] Main Menu')
         print('Option: [Location]  Location settings')
-        print('Option: [Google Geo] Google GeoCode API using current postalcode: ',postalcodeCurrent)
+        if googleKey=='':
+            print('Option: (NEED API KEY) [GeoCode] Google Geocode API using current postalcode')
+        else:
+            print('Option: [Google Geo] Google GeoCode API using current postalcode: ',postalcodeCurrent)
         print()
         locationsMenu=input ('Which option would you like...')
         print()
@@ -314,7 +329,7 @@ def SettingsMenu ():
         print()
         print('Option: [M] Main Menu')
         print('Option: [Ham]  Ham station settings')
-        print('Option: [Hive] Hive settings')
+        print('Option: (FUTURE FEATURE) [Hive] Hive settings')
         print('Option: [Out] Output current settings')
         print()
         settingsMenu=input ('Which option would you like...')
@@ -336,6 +351,7 @@ def SettingsMenu ():
             break
         if settingsMenu=="Hive":
             print()
+            print('FUTURE FEATURE PENDING RELEASE')
             break
         if settingsMenu=="Out":
             print()
@@ -354,7 +370,10 @@ def mainmenu():
         print('[W] Weather Menu')
         print('[E} Environment Menu')
         print('[F] FlMsg Menu')
-        print('[T] Transmit Menu')
+        if twilioAccountSid == '':
+            print('(NEED API KEY) [T] Transmit Menu')
+        else:
+            print('[T] Transmit Menu')
         print('[X] Exit & Quit Program')
         print()
         mainMenu=input ('Which option would you like...')
@@ -380,7 +399,7 @@ def mainmenu():
             print()
             flmsgmenu()
             print()       
-        if mainMenu=="T":
+        if mainMenu=="T" and twilioAccountSid!='':
             print()
             TransmitMenu()
             print()         
