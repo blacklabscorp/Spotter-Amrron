@@ -1,0 +1,8 @@
+twilio
+bs4
+request
+requests
+pyowm
+objectpath
+pyqrcode
+watchdog

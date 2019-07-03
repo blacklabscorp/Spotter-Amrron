@@ -4,9 +4,11 @@ import json
 import os
 
 # Env Data & Working directories
-workingDir=os.path.dirname(os.path.abspath(__file__))
-dataDir='\\SpotData\\'
+workingDir=os.environ["PWD"]
+dataDir='/SpotData/'
+configDir='/SpotConfigs/'
 dataPath=workingDir+dataDir
+configsPath=workingDir+configDir
 
 # Load values from Env variables
 callsignDefault=os.environ["s_callsignDefault"]
@@ -17,8 +19,8 @@ gridDefault=os.environ["s_gridDefault"]
 postalcodeDefault=os.environ["s_postalcodeDefault"]
 k2sDefault=os.environ["s_k2sDefault"]
 googleKey=os.environ["s_googleKey"]
-accuWeatherKey=os.environ["s_accuWeatherKey"]
-OpenWeatherKey=os.environ["s_OpenWeatherKey"]
+#accuWeatherKey=os.environ["s_accuWeatherKey"]
+OpenWeatherKey=os.environ["s_openWeatherKey"]
 twilioAccountSid=os.environ["s_twilioAccountSid"]
 twilioAmrronCell=os.environ["s_twilioAmrronCell"]
 twilioAuthToken=os.environ["s_twilioAuthToken"]
@@ -51,7 +53,7 @@ secretConfigs={'s_callsignDefault':callsignDefault,
          's_gridDefault':gridDefault,
          's_postalcodeDefault':postalcodeDefault,
          's_googleKey':googleKey,
-         's_accuWeatherKey':accuWeatherKey,
+         #'s_accuWeatherKey':accuWeatherKey,
          's_OpenWeatherKey':OpenWeatherKey,
          's_twilioAccountSid':twilioAccountSid,
          's_twilioAmrronCell':twilioAmrronCell,
@@ -77,24 +79,24 @@ secretConfigs={'s_callsignDefault':callsignDefault,
          }
 
 # Write Json
-def ConfigsJSONOut(secretConfigs,dataPath):
-    target=str(dataPath)
+def ConfigsJSONOut(secretConfigs,configsPath):
+    target=str(configsPath)
     configTarget=((target)+'SpotOut_Secrets.json')
-    print(configTarget)
     with open(configTarget, 'w') as f:
         json.dump(secretConfigs, f, ensure_ascii=False)
     return (configTarget)
 
 # Load and Print            
-def ConfigsJSONInPrint(dataPath):
-    target=str(dataPath)
+def ConfigsJSONInPrint(configsPath):
+    target=str(configsPath)
     configTarget=((target)+'SpotOut_Secrets.json')
-    print (configTarget)
     with open(configTarget, 'r') as f:
         parsed = json.load(f)
         print(parsed)
     return 
 
 # print('Test Block')
-# ConfigsJSONOut(secretConfigs,dataPath)
-# ConfigsJSONInPrint(dataPath)
+# ConfigsJSONOut(secretConfigs,configsPath)
+# ConfigsJSONInPrint(configsPath)
+print('Secrets are here: ',configsPath)
+

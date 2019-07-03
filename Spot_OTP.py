@@ -8,8 +8,8 @@ import fnmatch
 import shutil
 
 # Import QRCode from pyqrcode 
-import pyqrcode 
-from pyqrcode import QRCode 
+#import pyqrcode 
+#from pyqrcode import QRCode 
 
 # Capturing time 
 import datetime
@@ -47,9 +47,9 @@ def otp_main():
     # String which represent the QR code 
     print(configTargetSvg)
     # Generate QR code 
-    url = pyqrcode.create(configTargetSvg) 
+    #url = pyqrcode.create(configTargetSvg) 
     # Create and save the png file naming "[references download location].png" 
-    url.svg(configTargetSvg, scale = 8)
+    #url.svg(configTargetSvg, scale = 8)
     with open(configTargetPickle, 'wb') as f:
         pickle.dump(OTP, f)
     return (configTargetSvg)

@@ -1,0 +1,35 @@
+
+export s_dmrIdDefault=""
+export s_callsignDefault=''
+
+
+# Warm-up files
+export USERPROFILE=$HOME
+export s_spotter='//spotter//bin//spot'
+export s_k2sDefault="//.nbems//ICS//messages//"
+
+# PII Location
+export s_xDefault=""
+export s_yDefault=""
+export s_gridDefault=""
+export s_postalcodeDefault=""
+export s_cityStateDefault=""
+export s_cityDefault=""
+export s_stateDefault=""
+
+# Users for Twilio alerting
+export s_amrron00User=""
+export s_amrron01User=""
+export s_amrron00Cell=""
+export s_amrron01Cell=""
+export s_amrron00Email=""
+export s_amrron01Email=""
+
+# API KEYS
+export s_googleKey=""
+export s_openWeatherKey=""
+export s_twilioAccountSid=""
+export s_twilioAmrronCell=""
+export s_twilioAuthToken=""
+
+

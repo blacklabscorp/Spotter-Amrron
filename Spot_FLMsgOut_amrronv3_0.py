@@ -38,7 +38,7 @@ target = str(dataPath)
 # FlMsg working directories
 UserProfile = os.environ['USERPROFILE']
 flMsgWorkingDir = UserProfile+'\\NBEMS.files\\ICS\\messages\\'
-k2sFileDefault = os.environ['s_K2sDefault']
+k2sFileDefault = os.environ['s_k2sDefault']
 
 # Constants from Env variables not from Defaults file
 callsignDefault = os.environ['s_callsignDefault']

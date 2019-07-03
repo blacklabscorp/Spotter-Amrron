@@ -13,7 +13,7 @@ pc[0]=postalcodeStr
 postalcodeCurrent=pc[0]
 pc[1]=postalcodeCurrent
 
-
+# Location
 x={}
 xDefault=os.environ["s_xDefault"]
 xDefaultStr=str (xDefault)
@@ -30,11 +30,19 @@ y[1]=y[0]
 parallel={}
 USGSParameter03=y[0]
 
+# Date/Time
 DT={}
 USGSDateTime=spotterTimeDate
 USGSDateTimeStr=str (USGSDateTime)
 DT[0]=USGSDateTimeStr
 DT[1]=DT[0]
+
+# Env Data & Working directories
+workingDir=os.path.dirname(os.path.abspath(__file__))
+dataDir='/SpotData/'
+dataPath=workingDir+dataDir
+target=str(dataPath)
+
 
 #print('Test Block')
 #print(pc[0],pc[1],x[0],x[1],y[0],y[1])
@@ -63,8 +71,7 @@ def USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSM
             js = None
         if not js or 'status' not in js or js['status'] != 'OK' or js['status']!=200:
             print('Errors making call...')
-            print(earthquake)
-        target=str(dataPath)
+            print(earthquake)  
         configTarget=((target)+'SpotOut_Earthquakes.json')
         print(json.dumps(js, indent=4))
         for line in earthquake:
@@ -74,6 +81,7 @@ def USGSEarthquake(USGSEarthquakeServiceUrl,USGSEarthquakeAllDayServiceUrl,USGSM
         with open(configTarget, 'w') as f:
                 json.dump(js, f, ensure_ascii=False)
         break
+    print('Earthquake report written to: ', configTarget) 
     print()
     print('The Postal code you entered: ',postalcodeCurrent)
     print()

@@ -7,7 +7,7 @@ from objectpath import *
 
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
-dataDir='\\SpotData\\'
+dataDir='/SpotData/'
 dataPath=workingDir+dataDir
 target=str(dataPath)
 
