@@ -6,19 +6,21 @@ import os
 # Env Data & Working directories
 workingDir = os.path.dirname(os.path.abspath(__file__))
 dataDir = '\\SpotData\\'
-print(workingDir)
 dataPath = workingDir+dataDir
-configDir = workingDir+dataDir
-#configDir = 'c:\\spotter\\spot\\SpotConfigs\\'
+configDir = 'c:\\spotter\\spot\\SpotConfigs\\'
 configPath = configDir
 configTarget = str(configPath)
 
 # Load values from Env variables
 callsignDefault=os.environ["s_callsignDefault"]
+callsignPrefix=os.environ["s_callsignPrefix"]
 dmrIdDefault=os.environ["s_dmrIdDefault"]
 xDefault=os.environ["s_xDefault"]
 yDefault=os.environ["s_yDefault"]
 gridDefault=os.environ["s_gridDefault"]
+cityDefault=os.environ["s_cityDefault"]
+stateDefault=os.environ["s_stateDefault"]
+cityStateDefault=os.environ["s_cityStateDefault"]
 postalcodeDefault=os.environ["s_postalcodeDefault"]
 k2sDefault=os.environ["s_k2sDefault"]
 googleKey=os.environ["s_googleKey"]
@@ -48,11 +50,15 @@ amrron01Email=os.environ["s_amrron01Email"]
 # Create Dict
 secretConfigs={}
 secretConfigs={'s_callsignDefault':callsignDefault,
+	 's_callsignPrefix':callsignPrefix,
          's_dmrIdDefault':dmrIdDefault,
          's_k2sDefault':k2sDefault,
          's_xDefault':xDefault,
          's_yDefault':yDefault,
          's_gridDefault':gridDefault,
+	 's_cityDefault':cityDefault,
+	 's_stateDefault':stateDefault,
+	 's_cityStateDefault':cityStateDefault,
          's_postalcodeDefault':postalcodeDefault,
          's_googleKey':googleKey,
          's_openWeatherKey':openWeatherKey,

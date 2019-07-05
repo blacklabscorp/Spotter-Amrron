@@ -1,11 +1,19 @@
 REM required variables for spotter, just add your value in "" next to the variable below with a space in between to set the env variables.
-setx s_callsignDefault "ChangeMe"
+setx s_callsignDefault "abcdef"
+setx s_callsignPrefix "abc"
 setx s_dmrIdDefault "ChangeMe"
-setx s_cityStateDefault "ChangeMe"
+
+REM Location
 setx s_xDefault "ChangeMe"
 setx s_yDefault "ChangeMe"
 setx s_gridDefault "ChangeMe"
 setx s_postalcodeDefault "ChangeMe"
+setx s_cityDefault "ChangeMe"
+setx S_stateDefault "ChangeMe"
+setx s_cityStateDefault "ChangeMe"
+
+REM Working directories
+setx s_spotter "c:\spotter\spot"
 setx s_k2sDefault "ChangeMe"
 
 setx s_amrron00User "ChangeMe"
