@@ -22,6 +22,7 @@ REM Google has good lockdown configurability; Twilio does as well but leaves you
 
 setx s_googleKey "ChangeMe"
 setx s_openWeatherKey "ChangeMe"
+setx s_accuWeatherKey "ChangeMe"
 setx s_twilioAccountSid "ChangeMe"
 setx s_twilioAmrronCell "ChangeMe"
 setx s_twilioAuthToken "ChangeMe"
