@@ -4,9 +4,12 @@ import json
 import os
 
 # Env Data & Working directories
-workingDir=os.path.dirname(os.path.abspath(__file__))
-dataDir='\\SpotData\\'
-dataPath=workingDir+dataDir
+workingDir = os.path.dirname(os.path.abspath(__file__))
+dataDir = '\\SpotData\\'
+dataPath = workingDir+dataDir
+configDir = '\\SpotConfigs\\'
+configPath = workingDir+configDir
+configTarget = str(configPath)
 
 # Load values from Env variables
 callsignDefault=os.environ["s_callsignDefault"]
@@ -17,8 +20,8 @@ gridDefault=os.environ["s_gridDefault"]
 postalcodeDefault=os.environ["s_postalcodeDefault"]
 k2sDefault=os.environ["s_k2sDefault"]
 googleKey=os.environ["s_googleKey"]
-accuWeatherKey=os.environ["s_accuWeatherKey"]
-OpenWeatherKey=os.environ["s_OpenWeatherKey"]
+#accuWeatherKey=os.environ["s_accuWeatherKey"]
+OpenWeatherKey=os.environ["s_openWeatherKey"]
 twilioAccountSid=os.environ["s_twilioAccountSid"]
 twilioAmrronCell=os.environ["s_twilioAmrronCell"]
 twilioAuthToken=os.environ["s_twilioAuthToken"]
@@ -51,8 +54,8 @@ secretConfigs={'s_callsignDefault':callsignDefault,
          's_gridDefault':gridDefault,
          's_postalcodeDefault':postalcodeDefault,
          's_googleKey':googleKey,
-         's_accuWeatherKey':accuWeatherKey,
-         's_OpenWeatherKey':OpenWeatherKey,
+         #'s_accuWeatherKey':accuWeatherKey,
+         's_openWeatherKey':openWeatherKey,
          's_twilioAccountSid':twilioAccountSid,
          's_twilioAmrronCell':twilioAmrronCell,
          's_twilioAuthToken':twilioAuthToken,
@@ -78,19 +81,19 @@ secretConfigs={'s_callsignDefault':callsignDefault,
 
 # Write Json
 def ConfigsJSONOut(secretConfigs,dataPath):
-    target=str(dataPath)
-    configTarget=((target)+'SpotOut_Secrets.json')
-    print(configTarget)
-    with open(configTarget, 'w') as f:
+    configTarget=str(dataPath)
+    configTargets=((configTarget)+'SpotOut_Secrets.json')
+    print(configTargets)
+    with open(configTargets, 'w') as f:
         json.dump(secretConfigs, f, ensure_ascii=False)
-    return (configTarget)
+    return (configTargets)
 
 # Load and Print            
-def ConfigsJSONInPrint(dataPath):
-    target=str(dataPath)
-    configTarget=((target)+'SpotOut_Secrets.json')
-    print (configTarget)
-    with open(configTarget, 'r') as f:
+def ConfigsJSONInPrint(configPath):
+    configTarget=str(dataPath)
+    configTargets=((configTarget)+'SpotOut_Secrets.json')
+    print (configTargets)
+    with open(configTargets, 'r') as f:
         parsed = json.load(f)
         print(parsed)
     return 
