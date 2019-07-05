@@ -1,6 +1,7 @@
 REM required variables for spotter, just add your value in "" next to the variable below with a space in between to set the env variables.
 setx s_callsignDefault "ChangeMe"
 setx s_dmrIdDefault "ChangeMe"
+setx s_cityStateDefault "ChangeMe"
 setx s_xDefault "ChangeMe"
 setx s_yDefault "ChangeMe"
 setx s_gridDefault "ChangeMe"
