@@ -104,7 +104,6 @@ venv.bak/
 .mypy_cache/
 *.py
 SpotData/db.json
-*.json
-SpotData/KK*
+SpotData/SpotOut_Secrets.json
 experiments/ExperimentBS/
 experiments/
