@@ -13,7 +13,7 @@ configsPath=workingDir+configDir
 # FlMsg working directories
 UserProfile=os.environ["USERPROFILE"]
 flMsgWorkingDir=UserProfile+'\\NBEMS.files\\ICS\\messages\\'
-k2sFileDefault=os.environ["s_K2sDefault"]
+k2sFileDefault=os.environ["s_k2sDefault"]
 k2sFileCurrent=k2sFileDefault
 
 # Env PII
@@ -180,7 +180,7 @@ def HamDefaultsInput():
             break
 
 def WeatherMenu():
-    openWeatherKey=''
+    #openWeatherKey=''
     WeatherDeviceCurrentTemp=0
     print('W E A T H E R  M E N U')
     print('________________________')
