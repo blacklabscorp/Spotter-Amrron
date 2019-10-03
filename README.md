@@ -6,16 +6,127 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+These additional libraries will need to be installed in addition to Python 3.7.3
+pip install --upgrade pip
 
-```markdown
-Syntax highlighted code block
+Twilio library for SMS and phone integrations
+pip install twilio
+
+Beautiful Soup for Html/XML scrapping
+pip install bs4
+
+Http Requests
+pip install request or requests
+
+Open Weather Wrapper for python interfacing to OpenWeather
+pip install pyowm
+usage notes: https://pyowm.readthedocs.io/en/latest/usage-examples-v2/weather-api-usage-examples.html
+
+Objectpath use for walking an XML file
+Pip install objectpath
+
+PYQRCode for purposes of creating a QRcode for obscuring the target location from plain site; experimentation for stenography
+Pip Install pyqrcode
+
+WatchDog for file directory auditing; will be used in automation of base
+PIP install watchdog
+
+Out of working directory where the application will be installed, create a subdirectory called SpotData this is where output files will go.
+
+The following environment variables are used to isolate PII or sensitive key information to memory so as to be less likely to be mistakenly uploaded to repository.  The Input menu has an ability to export these sensitive environment variables to a JSON to allow for easier transportability across platforms.
+
+These are the variables name you'll want to populate with data.
+
+1. s_accuWeatherKey		AccuWeather API Key (requires sign-up for API key from Accuweather)
+1. s_googleKey			Google API Key (requires sign-up for API key from Accuweather)
+s_OpenWeatherKey		Open Weather Key (requires sign-up for API key from OpenWeather)
+s_twilioAccountSid		Twilio Username (requires sign-up for API key from Twilio)
+s_twilioAmrronCell		Twilio phone number (+18005551212 format) (requires sign-up for API key from Twilio)
+s_twilioAuthToken		Twilio password (requires sign-up for API key from Twilio)
+s_adafruitIoName		AdafruitIo User Name
+s_adafruitIoKey			AdafruitIO Key
+s_DarkSkysKey			Alternative weather service Key
+s_amrronDefaultWebServerUrl	Amrron web server for presentation tier (FUTURE FEATURE on AWS)
+s_amrronDefaultWebServiceUrl	Amrron web service logger URL (FUTURE FEATURE on AWS)
+s_amrronDefaultWebServiceKey	Amrron web service logger Key (FUTURE FEATURE on AWS)
+s_callsignDefault		Your Default Callsign
+s_cityStateDefault		Your Default City, State
+s_postalcodeDefault		Your Default zip code
+s_gridDefault			Your Default Grid
+s_xDefault			Your Default Longitude
+s_yDefault			Your Default Lattitude
+s_dmrIdDefault			Your Default DMR Id
+s_k2sDefault			This is a default file name defined for testing (has call sign in filename)
+s_amrronDefaultUser		Amrron Default User name
+s_amrronDefaultCell		Amrron Default User's cell ('+18005551212')
+s_amrron00User			Optional Amrron user name
+s_amrron00Cell			Optional Amrron user call
+s_amrron00Email			Optional Amrron user email
+s_amrron01User			Optional Amrron user name
+s_amrron01Cell			Optional Amrron user call
+s_amrron01Email			Optional Amrron user email
+s_amrron02User			Optional Amrron user name
+s_amrron02Cell			Optional Amrron user call
+s_amrron02Email			Optional Amrron user email
+s_amrron03User			Optional Amrron user name
+s_amrron03Cell			Optional Amrron user call
+s_amrron03Email			Optional Amrron user email
+s_amrron04User			Optional Amrron user name
+s_amrron04Cell			Optional Amrron user call
+s_amrron04Email			Optional Amrron user email
+s_amrron05User			Optional Amrron user name
+s_amrron05Cell			Optional Amrron user call
+s_amrron05Email			Optional Amrron user email
+s_USGS
+
 
 # Header 1
 ## Header 2
 ### Header 3
 
-- Bulleted
+- List
+s_accuWeatherKey		AccuWeather API Key (requires sign-up for API key from Accuweather)
+s_googleKey			Google API Key (requires sign-up for API key from Accuweather)
+s_OpenWeatherKey		Open Weather Key (requires sign-up for API key from OpenWeather)
+s_twilioAccountSid		Twilio Username (requires sign-up for API key from Twilio)
+s_twilioAmrronCell		Twilio phone number (+18005551212 format) (requires sign-up for API key from Twilio)
+s_twilioAuthToken		Twilio password (requires sign-up for API key from Twilio)
+s_adafruitIoName		AdafruitIo User Name
+s_adafruitIoKey			AdafruitIO Key
+s_DarkSkysKey			Alternative weather service Key
+s_amrronDefaultWebServerUrl	Amrron web server for presentation tier (FUTURE FEATURE on AWS)
+s_amrronDefaultWebServiceUrl	Amrron web service logger URL (FUTURE FEATURE on AWS)
+s_amrronDefaultWebServiceKey	Amrron web service logger Key (FUTURE FEATURE on AWS)
+s_callsignDefault		Your Default Callsign
+s_cityStateDefault		Your Default City, State
+s_postalcodeDefault		Your Default zip code
+s_gridDefault			Your Default Grid
+s_xDefault			Your Default Longitude
+s_yDefault			Your Default Lattitude
+s_dmrIdDefault			Your Default DMR Id
+s_k2sDefault			This is a default file name defined for testing (has call sign in filename)
+s_amrronDefaultUser		Amrron Default User name
+s_amrronDefaultCell		Amrron Default User's cell ('+18005551212')
+s_amrron00User			Optional Amrron user name
+s_amrron00Cell			Optional Amrron user call
+s_amrron00Email			Optional Amrron user email
+s_amrron01User			Optional Amrron user name
+s_amrron01Cell			Optional Amrron user call
+s_amrron01Email			Optional Amrron user email
+s_amrron02User			Optional Amrron user name
+s_amrron02Cell			Optional Amrron user call
+s_amrron02Email			Optional Amrron user email
+s_amrron03User			Optional Amrron user name
+s_amrron03Cell			Optional Amrron user call
+s_amrron03Email			Optional Amrron user email
+s_amrron04User			Optional Amrron user name
+s_amrron04Cell			Optional Amrron user call
+s_amrron04Email			Optional Amrron user email
+s_amrron05User			Optional Amrron user name
+s_amrron05Cell			Optional Amrron user call
+s_amrron05Email			Optional Amrron user email
+s_USGS
+
 - List
 
 1. Numbered
