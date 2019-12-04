@@ -11,10 +11,10 @@ BME280 bme;
 
 EspMQTTClient client(
   "Bear2Mixed",
-  "c0ffee02@",
+  "xxxxxxx",
   "3.92.246.6",  // MQTT Broker server ip
-  "rpremo@live.com",   // Can be omitted if not needed
-  "2b2f8262-90e3-421a-bc01-988a8468758d",   // Can be omitted if not needed
+  "xxxxxxxxxxx",   // Can be omitted if not needed
+  "xxxxxxxxxxx",   // Can be omitted if not needed
   "romeo07",     // Client name that uniquely identify your device
   1883              // The MQTT port, default to 1883. this line can be omitted
 );
