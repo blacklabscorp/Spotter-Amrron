@@ -5,7 +5,7 @@ import time
 from Adafruit_IO import MQTTClient
 
 # Set to your Adafruit IO key and username
-ADAFRUIT_IO_KEY      = 'f423599b45c04d2db94fece204600399'
+ADAFRUIT_IO_KEY      = 'xxxxxxxx'
 ADAFRUIT_IO_USERNAME = 'romeo07'
 
 def on_connect(client, userdata, flags, rc):
