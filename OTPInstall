@@ -1,5 +1,11 @@
 1] Install Virtualenv to create a container for this python environment
 
+Start with good install hygiene
+
+sudo apt update 
+sudo apt upgrade
+sudo apt install virtualenv
+
 2] check what version of python you have installed:
     python2 --version
     python3 --version
@@ -14,7 +20,6 @@
 
 cd ~/OTP
 mkdir SpotData
-cd ~/OTP
 copy the Spot_OTP.py script at root of OTP directory where the script will be run
 
 6] change directories to enable the container
@@ -24,9 +29,10 @@ Once complete you should now see (OTP) meaning the container is active.
 
 7] from the OTP directory type the following to run the script
 
+cd ~/OTP
 python Spot_OTP.py
 
-check the SpotData folder to see the Json written.
+SpotData will export a copy to JSON file format in the future, working on that update.
 
 8] to improve the randomization I would recommend running on the RaspberryPi and add a Hardware random number seed.  I use Open RNG
 https://onerng.info/
