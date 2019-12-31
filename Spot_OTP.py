@@ -7,10 +7,6 @@ import time
 import fnmatch
 import shutil
 
-# Import QRCode from pyqrcode 
-#import pyqrcode 
-#from pyqrcode import QRCode 
-
 # Capturing time 
 import datetime
 timestamp=''
@@ -19,8 +15,9 @@ timeUtcCurrent=datetime.datetime.utcnow()
 
 # Env Data & Working directories
 workingDir=os.path.dirname(os.path.abspath(__file__))
-dataDir='\\SpotData\\'
+dataDir='/SpotData/'
 dataPath=workingDir+dataDir
+print('Data Path: ',dataDir)
 
 # Variables
 OTP=''
@@ -42,17 +39,8 @@ def otp_main():
     OTPtOut=()
     OTP=(OTPtStampUTC,OTPtStampLocal,'OUT',OTPtOut,'IN',OTPtIn)
     target=str(dataPath)
-    configTargetPickle=((target)+'SpotOut_OTP_'+timestamp+'.pickle')
-    configTargetSvg=((target)+'SpotOut_OTP_'+timestamp+'.svg')
-    # String which represent the QR code 
-    print(configTargetSvg)
-    # Generate QR code 
-    #url = pyqrcode.create(configTargetSvg) 
-    # Create and save the png file naming "[references download location].png" 
-    #url.svg(configTargetSvg, scale = 8)
-    with open(configTargetPickle, 'wb') as f:
-        pickle.dump(OTP, f)
-    return (configTargetSvg)
+    configTargetJson=((target)+'SpotOut_OTP_'+timestamp+'.json')
+
 
 # Building the IN Pads
 def padin():
@@ -72,8 +60,6 @@ def padin():
     ingress25={}
     while z250 <250:
         ingressSolo[z250]=(random.sample(range(0, 9),1))
-        #ingress[x,y]=(random.sample(range(0, 9), 5))
-        #print(z250,ingress[x,y])
         z250=z250+1
         x=x+1
         y=y+1
